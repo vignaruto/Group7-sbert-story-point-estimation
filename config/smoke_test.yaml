@@ -1,0 +1,11 @@
+# OFFLINE pipeline check on SYNTHETIC data with a non-SBERT hashing encoder. NOT for reporting.
+seed: 42
+output_dir: results_smoke
+data: {csv_path: data/synthetic_issues.csv, projects_file: null, min_issues: 100}
+embedding: {backend: hashing, hashing_dim: 128, cache_dir: cache/embeddings_smoke}
+cnn:
+  max_epochs: 60
+  patience: 10
+  grid: {lr: [0.003], dropout: [0.1], weight_decay: [0.0001]}
+  final_seeds: [42, 43]
+evaluation: {bootstrap_samples: 200}

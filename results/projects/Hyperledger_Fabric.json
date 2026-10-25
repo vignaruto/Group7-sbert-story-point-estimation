@@ -1,0 +1,414 @@
+{
+  "project": "Hyperledger Fabric",
+  "n_issues": 625,
+  "n_dev": 500,
+  "n_test": 125,
+  "embedding_dim": 768,
+  "config_hash": "54e10c4846d35aeb",
+  "methods": {
+    "mean_baseline": {
+      "label": "Mean",
+      "best_params": {},
+      "cv": {
+        "fold_mae": [
+          1.77205,
+          1.8682000000000003,
+          2.0139,
+          2.1332000000000004,
+          1.6681
+        ],
+        "fold_mdae": [
+          1.5,
+          1.71,
+          1.7574999999999998,
+          1.62,
+          1.8050000000000002
+        ],
+        "mae_mean": 1.8910899999999997,
+        "mae_std": 0.18582152862356952,
+        "mdae_mean": 1.6785,
+        "mdae_std": 0.12095453691366852,
+        "mean_best_epoch": null
+      },
+      "grid": [
+        {
+          "params": {},
+          "mae_mean": 1.8910899999999997,
+          "mdae_mean": 1.6785
+        }
+      ],
+      "test": {
+        "mae": 1.8013599999999999,
+        "mdae": 1.71,
+        "mae_std_over_seeds": 0.0,
+        "mdae_std_over_seeds": 0.0,
+        "n_seeds": 1,
+        "per_seed_mae": [
+          1.8013599999999999
+        ],
+        "per_seed_mdae": [
+          1.71
+        ],
+        "n_trainable_params": null,
+        "final_best_epochs": [
+          null
+        ],
+        "mae_ci95": [
+          1.5094600000000002,
+          2.1681879999999993
+        ],
+        "mdae_ci95": [
+          1.29,
+          1.71
+        ],
+        "wilcoxon_p_vs_median_baseline": 0.02155626676001633,
+        "wilcoxon_p_vs_tfidf_ridge": 5.206910589645681e-08
+      },
+      "runtime_s": 0.07
+    },
+    "median_baseline": {
+      "label": "Median",
+      "best_params": {},
+      "cv": {
+        "fold_mae": [
+          1.68,
+          1.57,
+          1.62,
+          1.91,
+          1.33
+        ],
+        "fold_mdae": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "mae_mean": 1.6219999999999999,
+        "mae_std": 0.20873428084528897,
+        "mdae_mean": 1.0,
+        "mdae_std": 0.0,
+        "mean_best_epoch": null
+      },
+      "grid": [
+        {
+          "params": {},
+          "mae_mean": 1.6219999999999999,
+          "mdae_mean": 1.0
+        }
+      ],
+      "test": {
+        "mae": 1.648,
+        "mdae": 1.0,
+        "mae_std_over_seeds": 0.0,
+        "mdae_std_over_seeds": 0.0,
+        "n_seeds": 1,
+        "per_seed_mae": [
+          1.648
+        ],
+        "per_seed_mdae": [
+          1.0
+        ],
+        "n_trainable_params": null,
+        "final_best_epochs": [
+          null
+        ],
+        "mae_ci95": [
+          1.296,
+          2.0722
+        ],
+        "mdae_ci95": [
+          1.0,
+          1.0
+        ],
+        "wilcoxon_p_vs_tfidf_ridge": 0.00036510293870500247
+      },
+      "runtime_s": 0.08
+    },
+    "tfidf_ridge": {
+      "label": "TF-IDF+Ridge",
+      "best_params": {
+        "alpha": 0.1
+      },
+      "cv": {
+        "fold_mae": [
+          1.3979256767127557,
+          1.4040651709830416,
+          1.4162099054542503,
+          1.6151797976497644,
+          1.1581458050129396
+        ],
+        "fold_mdae": [
+          0.8081345039463761,
+          0.787213670465232,
+          0.6803138438976651,
+          0.7031276786156028,
+          0.8519966269258725
+        ],
+        "mae_mean": 1.3983052711625503,
+        "mae_std": 0.16206867825657065,
+        "mdae_mean": 0.7661572647701498,
+        "mdae_std": 0.07231126911287639,
+        "mean_best_epoch": null
+      },
+      "grid": [
+        {
+          "params": {
+            "alpha": 0.1
+          },
+          "mae_mean": 1.3983052711625503,
+          "mdae_mean": 0.7661572647701498
+        },
+        {
+          "params": {
+            "alpha": 1.0
+          },
+          "mae_mean": 1.440622811800512,
+          "mdae_mean": 0.7775800879343986
+        },
+        {
+          "params": {
+            "alpha": 10.0
+          },
+          "mae_mean": 1.588002218763835,
+          "mdae_mean": 0.9534504375591663
+        }
+      ],
+      "test": {
+        "mae": 1.2708678551732089,
+        "mdae": 0.798120300785734,
+        "mae_std_over_seeds": 0.0,
+        "mdae_std_over_seeds": 0.0,
+        "n_seeds": 1,
+        "per_seed_mae": [
+          1.2708678551732089
+        ],
+        "per_seed_mdae": [
+          0.798120300785734
+        ],
+        "n_trainable_params": null,
+        "final_best_epochs": [
+          null
+        ],
+        "mae_ci95": [
+          0.9791628679477863,
+          1.6364542136850344
+        ],
+        "mdae_ci95": [
+          0.6321612789287923,
+          0.9345391775335172
+        ],
+        "wilcoxon_p_vs_median_baseline": 0.00036510293870500247
+      },
+      "runtime_s": 1.83
+    },
+    "sbert_ridge": {
+      "label": "SBERT+Ridge",
+      "best_params": {
+        "alpha": 1.0
+      },
+      "cv": {
+        "fold_mae": [
+          1.4258723032474518,
+          1.409314523935318,
+          1.3638587093353272,
+          1.6550398290157318,
+          1.0743266534805298
+        ],
+        "fold_mdae": [
+          0.9396383762359619,
+          0.7085954546928406,
+          0.6227285861968994,
+          0.67418372631073,
+          0.7395110130310059
+        ],
+        "mae_mean": 1.3856824038028717,
+        "mae_std": 0.2074522864031767,
+        "mdae_mean": 0.7369314312934876,
+        "mdae_std": 0.12132523608932601,
+        "mean_best_epoch": null
+      },
+      "grid": [
+        {
+          "params": {
+            "alpha": 0.1
+          },
+          "mae_mean": 1.501483618736267,
+          "mdae_mean": 0.7849951148033142
+        },
+        {
+          "params": {
+            "alpha": 1.0
+          },
+          "mae_mean": 1.3856824038028717,
+          "mdae_mean": 0.7369314312934876
+        },
+        {
+          "params": {
+            "alpha": 10.0
+          },
+          "mae_mean": 1.4729107143878934,
+          "mdae_mean": 0.8180196404457092
+        },
+        {
+          "params": {
+            "alpha": 100.0
+          },
+          "mae_mean": 1.6117324788570404,
+          "mdae_mean": 0.9957001328468322
+        }
+      ],
+      "test": {
+        "mae": 1.2682128992080688,
+        "mdae": 0.7441592216491699,
+        "mae_std_over_seeds": 0.0,
+        "mdae_std_over_seeds": 0.0,
+        "n_seeds": 1,
+        "per_seed_mae": [
+          1.2682128992080688
+        ],
+        "per_seed_mdae": [
+          0.7441592216491699
+        ],
+        "n_trainable_params": null,
+        "final_best_epochs": [
+          null
+        ],
+        "mae_ci95": [
+          0.9772204238653183,
+          1.662576174354553
+        ],
+        "mdae_ci95": [
+          0.606919938325882,
+          0.942601203918457
+        ],
+        "wilcoxon_p_vs_median_baseline": 0.00015624342640294635,
+        "wilcoxon_p_vs_tfidf_ridge": 0.7514735974378313
+      },
+      "runtime_s": 0.49
+    },
+    "sbert_cnn": {
+      "label": "SBERT+CNN",
+      "best_params": {
+        "lr": 0.001,
+        "dropout": 0.5,
+        "weight_decay": 0.0001
+      },
+      "cv": {
+        "fold_mae": [
+          1.4353201370865725,
+          1.444570761508614,
+          1.4444412745085151,
+          1.6347150835762787,
+          1.1033777782388723
+        ],
+        "fold_mdae": [
+          0.8352125109892081,
+          0.7685583379065674,
+          0.6067692957957714,
+          0.5363170203639882,
+          0.6116447621739323
+        ],
+        "mae_mean": 1.4124850069837707,
+        "mae_std": 0.1920323069492581,
+        "mdae_mean": 0.6717003854458934,
+        "mdae_std": 0.12476884425328626,
+        "mean_best_epoch": 21.8
+      },
+      "grid": [
+        {
+          "params": {
+            "lr": 0.001,
+            "dropout": 0.1,
+            "weight_decay": 0.0001
+          },
+          "mae_mean": 1.4629370546517786,
+          "mdae_mean": 0.7136247417676149
+        },
+        {
+          "params": {
+            "lr": 0.001,
+            "dropout": 0.1,
+            "weight_decay": 0.01
+          },
+          "mae_mean": 1.4197405805169896,
+          "mdae_mean": 0.7112319319308285
+        },
+        {
+          "params": {
+            "lr": 0.001,
+            "dropout": 0.3,
+            "weight_decay": 0.0001
+          },
+          "mae_mean": 1.4268030590440255,
+          "mdae_mean": 0.7033120860257643
+        },
+        {
+          "params": {
+            "lr": 0.001,
+            "dropout": 0.3,
+            "weight_decay": 0.01
+          },
+          "mae_mean": 1.4459733226868359,
+          "mdae_mean": 0.7276448117785911
+        },
+        {
+          "params": {
+            "lr": 0.001,
+            "dropout": 0.5,
+            "weight_decay": 0.0001
+          },
+          "mae_mean": 1.4124850069837707,
+          "mdae_mean": 0.6717003854458934
+        },
+        {
+          "params": {
+            "lr": 0.001,
+            "dropout": 0.5,
+            "weight_decay": 0.01
+          },
+          "mae_mean": 1.4402527985892213,
+          "mdae_mean": 0.7205261671998665
+        }
+      ],
+      "test": {
+        "mae": 1.3983687887679042,
+        "mdae": 0.7849989752168852,
+        "mae_std_over_seeds": 0.017195199964700245,
+        "mdae_std_over_seeds": 0.1164565904415588,
+        "n_seeds": 3,
+        "per_seed_mae": [
+          1.4007423668127408,
+          1.4142538917693603,
+          1.3801101077216114
+        ],
+        "per_seed_mdae": [
+          0.9036218093344195,
+          0.7805383090801965,
+          0.6708368072360393
+        ],
+        "n_trainable_params": 406561,
+        "final_best_epochs": [
+          3,
+          9,
+          16
+        ],
+        "mae_ci95": [
+          1.0901616843434458,
+          1.8054295852827627
+        ],
+        "mdae_ci95": [
+          0.6408584731288104,
+          0.9678713976444467
+        ],
+        "wilcoxon_p_vs_median_baseline": 1.859888817932019e-05,
+        "wilcoxon_p_vs_tfidf_ridge": 0.044501570788721155
+      },
+      "runtime_s": 50.6
+    }
+  },
+  "test_sp_median": 2.0,
+  "data_hash": "589f6a5725f2735b58e9e598a138477b3ac86469",
+  "n_test_texts_also_in_dev": 0,
+  "runtime_s": 58.88
+}

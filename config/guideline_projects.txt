@@ -1,0 +1,41 @@
+# The 39 projects named in Project_Guidelines.pdf (section 3.3). Names must match TAWOS Project.Name;
+# unmatched names are reported as warnings at run time.
+XD
+Usergrid
+Titanium Mobile Platform
+The Titanium SDK
+Software Cloud
+Sawtooth
+Nexus
+MXNet
+Mule APIkit
+Mule
+Moodle
+MongoDB Core Server
+MESOS
+Lyrasis Dura Cloud
+Lsstcorp Data management
+Jira Server
+Jira Cloud
+Java driver
+Indy SDK
+Indy Node
+FishEye
+Fabric
+Evergreen
+DotNetNuke Platform
+DataCass
+Crowd
+Confluence Server
+Confluence Cloud
+Compass
+Command-Line Interface
+Clover
+C++ driver (Appcelerator)
+C++ driver (MongoDB)
+Blockchain Explorer
+Bamboo
+Atlassian Software Server
+Appcelerator Studio
+Appcelerator Daemon
+Alloy Framework

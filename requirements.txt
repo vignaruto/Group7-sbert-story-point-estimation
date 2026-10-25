@@ -1,0 +1,12 @@
+numpy>=1.26
+pandas>=2.0
+scipy>=1.11
+scikit-learn>=1.3
+torch>=2.1
+sentence-transformers>=2.7
+PyYAML>=6.0
+matplotlib>=3.8
+reportlab>=4.0
+pymysql>=1.1        # only for scripts/export_tawos_to_csv.py
+pytest>=8.0
+psutil>=5.9        # RAM check in 'python -m spsbert doctor' (needed on Windows)

@@ -1,0 +1,58 @@
+# PS-5 (Group 7): SBERT sentence embeddings, WITHIN-project, RANDOM split.
+# Every value that influences results lives here (and is hashed into results/projects/*.json).
+seed: 42                      # master seed: splits, CV, model init
+output_dir: results
+
+data:
+  csv_path: data/tawos_issues.csv
+  projects_file: config/guideline_projects.txt   # null -> use every project in the CSV
+  aliases_file: config/project_aliases.csv      # assignment short names -> TAWOS full names
+  min_issues: 100             # need enough issues for 80:20 + 5-fold
+  max_story_point: 100        # OUTLIER POLICY: story points above 100 (top of the planning-poker deck) are data-entry errors in TAWOS
+                              # (raw max is 26,710,114) and are removed; per-project counts are reported. null keeps everything.
+  deduplicate: true           # identical texts inside one project would leak across splits
+
+split:
+  test_size: 0.20             # 80:20 development:test (guideline 3.2)
+  n_folds: 5                  # 5-fold CV on the 80 % development part
+
+embedding:
+  backend: sbert
+  model_name: sentence-transformers/all-mpnet-base-v2   # 768-d; fast alternative: all-MiniLM-L6-v2
+  batch_size: 64
+  normalize: true
+  max_seq_length: 384         # longer texts are truncated by SBERT
+  cache_dir: cache/embeddings
+  device: auto
+
+cnn:                          # three-layer CNN on top of the frozen SBERT vector
+  channels: [16, 32, 64]
+  kernel_size: 5
+  pool_size: 2
+  adaptive_pool: 0            # 0 = fully-connected head sees the whole feature map
+  pool_type: avg              # avg | max
+  fc_hidden: 64
+  target_transform: log1p
+  loss: huber
+  standardize_inputs: true
+  max_epochs: 100
+  patience: 10
+  batch_size: 32
+  inner_val_fraction: 0.10
+  grid:                       # selected by mean 5-fold validation MAE (development data only)
+    lr: [0.001]
+    dropout: [0.1, 0.3, 0.5]
+    weight_decay: [0.0001, 0.01]
+  final_seeds: [42, 43, 44]   # final model trained once per seed; mean +/- std reported
+  device: auto
+
+ridge:
+  alphas: [0.1, 1.0, 10.0, 100.0]
+  tfidf_max_features: 20000
+  tfidf_ngram: [1, 2]
+  tfidf_alphas: [0.1, 1.0, 10.0]
+
+evaluation:
+  bootstrap_samples: 1000
+  bootstrap_seed: 0
+  methods: [mean_baseline, median_baseline, tfidf_ridge, sbert_ridge, sbert_cnn]

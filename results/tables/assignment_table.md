@@ -1,0 +1,8 @@
+| Scope | Evaluation | Representation | Model configuration | MAE | MdAE |
+|---|---|---|---|---|---|
+| ALL PROJECTS (macro mean) | 5-fold validation (mean ± std over folds) | BERT word embeddings | not part of PS-5 (assigned to other groups) | - | - |
+| ALL PROJECTS (macro mean) | 5-fold validation (mean ± std over folds) | SBERT sentence embeddings | sentence-transformers/all-mpnet-base-v2 (frozen, dim=768) + 3-layer CNN channels=[16, 32, 64], kernel=5, avg-pool, loss=huber, Adam; grid={'lr': [0.001], 'dropout': [0.1, 0.3, 0.5], 'weight_decay': [0.0001, 0.01]} selected by 5-fold CV; final seeds=[42, 43, 44] | 2.058 ± 0.364 | 1.177 ± 0.158 |
+| ALL PROJECTS (macro mean) | 5-fold validation (mean ± std over folds) | Combined BERT + SBERT embeddings | not part of PS-5 (assigned to other groups) | - | - |
+| ALL PROJECTS (macro mean) | Final held-out test | BERT word embeddings | not part of PS-5 (assigned to other groups) | - | - |
+| ALL PROJECTS (macro mean) | Final held-out test | SBERT sentence embeddings | sentence-transformers/all-mpnet-base-v2 (frozen, dim=768) + 3-layer CNN channels=[16, 32, 64], kernel=5, avg-pool, loss=huber, Adam; grid={'lr': [0.001], 'dropout': [0.1, 0.3, 0.5], 'weight_decay': [0.0001, 0.01]} selected by 5-fold CV; final seeds=[42, 43, 44] | 2.063 | 1.199 |
+| ALL PROJECTS (macro mean) | Final held-out test | Combined BERT + SBERT embeddings | not part of PS-5 (assigned to other groups) | - | - |

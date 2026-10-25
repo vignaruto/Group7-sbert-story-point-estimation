@@ -1,0 +1,12 @@
+# Cheaper than default.yaml (about 2-3x faster): 4 CNN settings, 2 final seeds, fewer epochs. Use it if the doctor's estimate
+# for default.yaml does not fit your sessions. Same experiment design; STATE IN THE REPORT which config produced the results.
+seed: 42
+output_dir: results
+data: {csv_path: data/tawos_issues.csv, projects_file: config/guideline_projects.txt, aliases_file: config/project_aliases.csv, min_issues: 100, max_story_point: 100}
+embedding: {model_name: sentence-transformers/all-mpnet-base-v2}
+cnn:
+  max_epochs: 60
+  patience: 8
+  grid: {lr: [0.001], dropout: [0.1, 0.3], weight_decay: [0.0001, 0.01]}
+  final_seeds: [42, 43]
+evaluation: {bootstrap_samples: 1000}

@@ -1,0 +1,65 @@
+guideline_quote,status,where
+"investigate the impact of word embeddings, sentence embeddings",SBERT arm only (PS-5); other arms = other groups,report 5/8; assignment_table rows N/A
+All conclusions must be supported by reproducible experiments,IMPLEMENTED,"seeds, config+data hash, verify cmd, check A08/A11"
+using Mean Absolute Error (MAE) and Median,IMPLEMENTED,metrics.py; check A01
+build a machine learning model that uses a software issue description to predict its story point,IMPLEMENTED,data.py text=title+description; models.py
+Sentence embeddings represent an entire sentence or text passage as a numerical vector,IMPLEMENTED,embeddings.SBERTEncoder
+Training and testing issues come from the same software project,IMPLEMENTED,experiment.run_project per project
+Issues are divided into training and testing sets without ordering them by creation date,IMPLEMENTED,splits.make_split shuffled; Creation_Date unused
+Investigate the effectiveness of SBERT-based sentence embeddings for story point estimation within the same project using random splitting,IMPLEMENTED (assigned PS-5),whole pipeline
+Use SBERT for sentence-level representations in sentence-embedding projects,IMPLEMENTED,check A09 (FAILS if not real SBERT)
+A three-layer Convolutional Neural Network (CNN) may be used as the prediction component,IMPLEMENTED,models.build_cnn_module; check A10
+"Document the model configuration, embedding extraction procedure, CNN architecture (if used)",IMPLEMENTED,"config/default.yaml, README 4, report 3, notebook 4-5"
+"hyperparameters, and random seeds",IMPLEMENTED,run_metadata.json; check A11
+Use an 80:20 development,IMPLEMENTED,split.test_size=0.2; check A05
+Reserve 20% of the eligible,IMPLEMENTED,check A05
+Divide the 80% development portion into five folds,IMPLEMENTED,"KFold(5); check A02, A06"
+use four folds for training and one fold for validation,IMPLEMENTED (CNN early-stop hold-out taken from the 4 train folds; documented),experiment.cross_validate
+ensuring every fold serves as the validation fold once,IMPLEMENTED,assert_valid_split; check A06
+Select the final model configuration using development data only,IMPLEMENTED,cross_validate; check A07; leakage-spy test
+Evaluate the selected configuration on the held-out test,IMPLEMENTED,final_evaluation (test scored once)
+Use the same data partitions when comparing,IMPLEMENTED,all methods share one split; results/splits/*.json
+"For temporal projects, sort issues by creation date",N/A (PS-5 is random split),-
+"For cross-project projects, clearly document the source and target projects",N/A (PS-5 is within-project),-
+Mean Absolute Error (MAE),IMPLEMENTED,metrics.mae
+Median Absolute Error (MdAE),IMPLEMENTED,metrics.mdae
+"Five-fold validation results, reported separately from final held-out test results",IMPLEMENTED,tables/validation_* vs test_results; check A04
+mean and standard deviation of validation metrics across folds,IMPLEMENTED,check A03; notebook section 7
+Report model and settings,IMPLEMENTED,tables/assignment_table.md; report Table A
+Which representation achieves the lowest MAE and MdAE,IMPLEMENTED (computed automatically),notebook s12; report s6
+"Limitations, threats to validity, and possible explanations for the observed results",IMPLEMENTED (text; group adds interpretation),notebook s12; report s7
+"README.md with project title, group members, problem statement, objectives, dataset description, setup instructions, and",IMPLEMENTED,README; check A16
+instructions for reproducing experiments,IMPLEMENTED,README 3; docs/RUN_GUIDE.md
+"Source code or notebooks for preprocessing, embedding extraction, model training, prediction, and evaluation",IMPLEMENTED,src/spsbert; notebook; check A17
+"Configuration files specifying model names, hyperparameters, random seeds, split settings",IMPLEMENTED,config/*.yaml; check A18
+embedding-fusion settings where applicable,N/A (no fusion in PS-5),-
+"Results containing validation and test metrics (MAE and MdAE), comparative tables, and appropriate plots",IMPLEMENTED (after your run),"results/tables, results/figures; checks A12-A13"
+GitHub repository link containing the complete source code and documentation,YOUR ACTION,push repo; pass URL to report
+the GitHub,IMPLEMENTED,report page 1; check A20
+"Final project report in PDF format describing the problem, methodology, experiments, results, conclusions",PENDING (built after your run),python -m spsbert report
+Comparative evaluation tables reporting MAE and MdAE for the assigned representation(s),IMPLEMENTED (after your run),"assignment_table, macro_summary"
+"Demonstration of the implementation, including instructions to run the code and reproduce the principal results",IMPLEMENTED,notebook s13; predict/verify; check A19
+Follow the assigned project configuration and common evaluation metrics,IMPLEMENTED,PS-5 config
+Reserve the test set for final,IMPLEMENTED,leakage-spy test
+"Record random seeds, data-splitting procedures, model versions, and experimental configurations",IMPLEMENTED,"run_metadata.json, splits/*.json; check A11, A14"
+do not fabricate results or claim improvements unsupported by measurements,IMPLEMENTED,report text generated from results; smoke runs stamped; check A15
+Ensure that all group members understand the methodology,YOUR ACTION,docs/VIVA_GUIDE.md
+Sentence embeddings (SBERT) Within-project Random split,IMPLEMENTED (this is PS-5),whole pipeline
+or fused using another clearly documented strategy,N/A for PS-5 (belongs to another problem statement): fusion,-
+Temporal validation must preserve chronological order,"N/A for PS-5 (belongs to another problem statement): temporal split (PS-2,4,6,8,10,12)",-
+Issues are sorted by creation date,N/A for PS-5 (belongs to another problem statement): temporal split,-
+Evaluate BERT-based word embeddings for story point estimation when training on source projects,N/A for PS-5 (belongs to another problem statement) (PS-3),-
+Evaluate BERT-based word embeddings for predicting story points of later issues in a target,N/A for PS-5 (belongs to another problem statement) (PS-4),-
+Evaluate SBERT-based sentence embeddings for story point estimation across different projects,N/A for PS-5 (belongs to another problem statement) (PS-7),-
+Evaluate SBERT-based sentence embeddings for predicting story points of later issues in a target,N/A for PS-5 (belongs to another problem statement) (PS-8),-
+Evaluate combination of BERT word embeddings and SBERT sentence embeddings,N/A for PS-5 (belongs to another problem statement) (PS-9),-
+Evaluate whether combined word and sentence embeddings improve story point estimation,N/A for PS-5 (belongs to another problem statement) (PS-11),-
+Evaluate the effectiveness of combined word and sentence embeddings for predicting story points of later issues in a target project,N/A for PS-5 (belongs to another problem statement) (PS-12),-
+Use BERT for contextual token-level representations in word-embedding projects,N/A for PS-5 (belongs to another problem statement) (PS-1..4),-
+combine BERT token-level representations with SBERT sentence-level representations,N/A for PS-5 (belongs to another problem statement): combined (PS-9..12),-
+Keep target-project test data separate from training and model-selection decisions,N/A for PS-5 (belongs to another problem statement) (cross-project); same principle applied to our test set,leakage-spy test
+Keep these 39 pairs of training and testing data,N/A for PS-5 (belongs to another problem statement) (cross-project pairs); we use the same 39 projects as within-project subjects,config/guideline_projects.txt
+Each group must report at least the following metrics,IMPLEMENTED,"MAE, MdAE, 5-fold, mean/std"
+Each group must create a GitHub repository containing the complete implementation and documentation,YOUR ACTION,push this repo
+The repository must include,IMPLEMENTED,check A16-A19
+Use training data for fitting model parameters and validation data for model selection,IMPLEMENTED,cross_validate; leakage-spy test

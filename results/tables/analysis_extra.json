@@ -1,0 +1,59 @@
+{
+  "n_projects": 39,
+  "mean_ranks": {
+    "mean_baseline": 4.794871794871795,
+    "median_baseline": 3.3333333333333335,
+    "tfidf_ridge": 1.6666666666666667,
+    "sbert_ridge": 2.230769230769231,
+    "sbert_cnn": 2.9743589743589745
+  },
+  "friedman": {
+    "chi2": 88.96410256410252,
+    "p": 2.1853984363463416e-18
+  },
+  "primary_vs": {
+    "mean_baseline": {
+      "wins": 37,
+      "ties": 0,
+      "losses": 2,
+      "wilcoxon_p": 9.204086381942034e-10
+    },
+    "median_baseline": {
+      "wins": 28,
+      "ties": 0,
+      "losses": 11,
+      "wilcoxon_p": 0.0005585208127740771
+    },
+    "tfidf_ridge": {
+      "wins": 5,
+      "ties": 0,
+      "losses": 34,
+      "wilcoxon_p": 4.021188942715526e-06
+    },
+    "sbert_ridge": {
+      "wins": 9,
+      "ties": 0,
+      "losses": 30,
+      "wilcoxon_p": 0.0016351219310308807
+    }
+  },
+  "improvement_spearman": {
+    "n_issues": {
+      "rho": 0.5526071026490974,
+      "p": 0.000321225458962696
+    },
+    "mode_share": {
+      "rho": -0.27847685742422584,
+      "p": 0.09046015785987895
+    },
+    "n_distinct_sp": {
+      "rho": 0.5175004225026171,
+      "p": 0.0008769456940008489
+    },
+    "sp_std": {
+      "rho": 0.3362512309880731,
+      "p": 0.03900994399271618
+    }
+  },
+  "median_improvement_pct": 3.3088982890301573
+}

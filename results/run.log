@@ -1,0 +1,249 @@
+01:19:08 | INFO    | TensorFlow version 2.20.0 available.
+01:19:08 | INFO    | JAX version 0.11.1 available.
+01:21:41 | INFO    | Outlier policy: 141 issues with story points > 100 removed (raw maximum 26710114.0)
+01:21:43 | WARNING | Project names matched by ELIMINATION (confirm with your instructor; the numbers are unaffected, only the label): ['Evergreen -> The MongoDB Engineering', 'C++ driver (Appcelerator) -> Aptana Studio']
+01:21:56 | INFO    | Loaded SBERT 'sentence-transformers/all-mpnet-base-v2' on cuda (dim=768, max_seq_length=384)
+01:22:02 | INFO    | Usable projects (39): ['Alloy Framework', 'Apache MXNet', 'Apache Mesos', 'Apache Usergrid', 'Appcelerator Daemon', 'Appcelerator Studio', 'Aptana Studio', 'Atlassian Atlassian Software Server', 'Atlassian Bamboo', 'Atlassian Clover', 'Atlassian Confluence Cloud', 'Atlassian Confluence Server', 'Atlassian Crowd', 'Atlassian FishEye', 'Atlassian Jira Cloud', 'Atlassian Jira Server', 'Atlassian Software Cloud', 'Command-Line Interface', 'DotNetNuke Platform', 'Hyperledger Blockchain Explorer', 'Hyperledger Fabric', 'Hyperledger Indy Node', 'Hyperledger Indy SDK', 'Hyperledger Sawtooth', 'Lsstcorp Data management', 'Lyrasis Dura Cloud', 'MongoDB Compass', 'MongoDB Core Server', 'Moodle', 'Mule', 'Mule APIkit', 'Sonatype Nexus', 'Spring DataCass', 'Spring XD', 'The Mongo C++ driver', 'The Mongo Java driver', 'The MongoDB Engineering', 'The Titanium SDK', 'Titanium Mobile Platform']
+01:22:08 | INFO    | Loaded SBERT 'sentence-transformers/all-mpnet-base-v2' on cuda (dim=768, max_seq_length=384)
+01:22:08 | INFO    | [1/39] Alloy Framework (n=303)
+01:22:11 | INFO    |   Mean             val MAE 1.859±0.370 | test MAE 2.128 MdAE 1.087
+01:22:11 | INFO    |   Median           val MAE 1.666±0.397 | test MAE 1.967 MdAE 2.000
+01:22:13 | INFO    |   TF-IDF+Ridge     val MAE 1.696±0.397 | test MAE 1.965 MdAE 1.327
+01:22:13 | INFO    |   SBERT+Ridge      val MAE 1.699±0.410 | test MAE 1.961 MdAE 1.330
+01:22:31 | INFO    |   SBERT+CNN        val MAE 1.715±0.409 | test MAE 1.995 MdAE 1.453
+01:22:31 | INFO    | [2/39] Apache MXNet (n=204)
+01:22:31 | INFO    |   Mean             val MAE 5.335±2.619 | test MAE 5.777 MdAE 4.285
+01:22:31 | INFO    |   Median           val MAE 4.360±2.970 | test MAE 4.268 MdAE 2.000
+01:22:32 | INFO    |   TF-IDF+Ridge     val MAE 4.119±2.936 | test MAE 4.212 MdAE 1.336
+01:22:32 | INFO    |   SBERT+Ridge      val MAE 4.255±2.998 | test MAE 4.536 MdAE 1.760
+01:22:47 | INFO    |   SBERT+CNN        val MAE 4.229±2.887 | test MAE 4.323 MdAE 1.477
+01:22:47 | INFO    | [3/39] Apache Mesos (n=3267)
+01:23:22 | INFO    |   Mean             val MAE 1.565±0.046 | test MAE 1.637 MdAE 1.208
+01:23:22 | INFO    |   Median           val MAE 1.462±0.071 | test MAE 1.546 MdAE 1.000
+01:23:30 | INFO    |   TF-IDF+Ridge     val MAE 1.359±0.059 | test MAE 1.384 MdAE 0.969
+01:23:32 | INFO    |   SBERT+Ridge      val MAE 1.345±0.083 | test MAE 1.328 MdAE 0.933
+01:26:09 | INFO    |   SBERT+CNN        val MAE 1.369±0.087 | test MAE 1.408 MdAE 0.920
+01:26:09 | INFO    | [4/39] Apache Usergrid (n=481)
+01:26:13 | INFO    |   Mean             val MAE 0.881±0.169 | test MAE 1.036 MdAE 0.935
+01:26:13 | INFO    |   Median           val MAE 0.852±0.143 | test MAE 1.031 MdAE 1.000
+01:26:15 | INFO    |   TF-IDF+Ridge     val MAE 0.903±0.147 | test MAE 0.956 MdAE 0.558
+01:26:16 | INFO    |   SBERT+Ridge      val MAE 0.917±0.168 | test MAE 1.007 MdAE 0.607
+01:26:46 | INFO    |   SBERT+CNN        val MAE 0.957±0.166 | test MAE 1.032 MdAE 0.675
+01:26:46 | INFO    | [5/39] Appcelerator Daemon (n=241)
+01:26:50 | INFO    |   Mean             val MAE 6.281±0.960 | test MAE 6.604 MdAE 5.417
+01:26:50 | INFO    |   Median           val MAE 5.503±1.801 | test MAE 6.224 MdAE 3.000
+01:26:50 | INFO    |   TF-IDF+Ridge     val MAE 5.087±1.269 | test MAE 5.330 MdAE 2.789
+01:26:50 | INFO    |   SBERT+Ridge      val MAE 5.142±1.581 | test MAE 5.653 MdAE 3.165
+01:27:11 | INFO    |   SBERT+CNN        val MAE 5.117±1.614 | test MAE 6.087 MdAE 3.258
+01:27:11 | INFO    | [6/39] Appcelerator Studio (n=3290)
+01:27:50 | INFO    |   Mean             val MAE 2.342±0.083 | test MAE 2.304 MdAE 2.371
+01:27:50 | INFO    |   Median           val MAE 2.104±0.113 | test MAE 2.074 MdAE 2.000
+01:27:58 | INFO    |   TF-IDF+Ridge     val MAE 2.063±0.127 | test MAE 1.921 MdAE 1.483
+01:28:00 | INFO    |   SBERT+Ridge      val MAE 2.084±0.120 | test MAE 1.998 MdAE 1.512
+01:31:02 | INFO    |   SBERT+CNN        val MAE 2.100±0.135 | test MAE 2.009 MdAE 1.498
+01:31:02 | INFO    | [7/39] Aptana Studio (n=839)
+01:31:12 | INFO    |   Mean             val MAE 4.766±0.784 | test MAE 5.226 MdAE 4.416
+01:31:12 | INFO    |   Median           val MAE 4.480±0.840 | test MAE 4.982 MdAE 5.000
+01:31:15 | INFO    |   TF-IDF+Ridge     val MAE 4.261±0.721 | test MAE 4.741 MdAE 2.808
+01:31:16 | INFO    |   SBERT+Ridge      val MAE 4.276±0.620 | test MAE 4.794 MdAE 2.853
+01:31:58 | INFO    |   SBERT+CNN        val MAE 4.313±0.687 | test MAE 4.811 MdAE 2.748
+01:31:59 | INFO    | [8/39] Atlassian Atlassian Software Server (n=325)
+01:32:03 | INFO    |   Mean             val MAE 2.418±0.295 | test MAE 1.973 MdAE 1.404
+01:32:03 | INFO    |   Median           val MAE 2.304±0.379 | test MAE 1.846 MdAE 2.000
+01:32:04 | INFO    |   TF-IDF+Ridge     val MAE 2.114±0.279 | test MAE 1.727 MdAE 1.417
+01:32:05 | INFO    |   SBERT+Ridge      val MAE 2.110±0.303 | test MAE 1.690 MdAE 1.265
+01:32:21 | INFO    |   SBERT+CNN        val MAE 2.225±0.373 | test MAE 1.836 MdAE 1.534
+01:32:21 | INFO    | [9/39] Atlassian Bamboo (n=514)
+01:32:26 | INFO    |   Mean             val MAE 1.292±0.068 | test MAE 1.272 MdAE 0.646
+01:32:26 | INFO    |   Median           val MAE 1.145±0.072 | test MAE 1.180 MdAE 1.000
+01:32:28 | INFO    |   TF-IDF+Ridge     val MAE 1.120±0.055 | test MAE 1.186 MdAE 0.865
+01:32:28 | INFO    |   SBERT+Ridge      val MAE 1.091±0.059 | test MAE 1.199 MdAE 0.921
+01:32:57 | INFO    |   SBERT+CNN        val MAE 1.174±0.064 | test MAE 1.203 MdAE 0.812
+01:32:57 | INFO    | [10/39] Atlassian Clover (n=382)
+01:33:02 | INFO    |   Mean             val MAE 5.455±0.605 | test MAE 4.968 MdAE 3.713
+01:33:02 | INFO    |   Median           val MAE 4.349±0.830 | test MAE 3.143 MdAE 1.000
+01:33:04 | INFO    |   TF-IDF+Ridge     val MAE 3.709±0.961 | test MAE 2.882 MdAE 1.193
+01:33:04 | INFO    |   SBERT+Ridge      val MAE 3.945±0.747 | test MAE 2.852 MdAE 1.306
+01:33:34 | INFO    |   SBERT+CNN        val MAE 4.074±0.831 | test MAE 3.078 MdAE 1.528
+01:33:34 | INFO    | [11/39] Atlassian Confluence Cloud (n=340)
+01:33:40 | INFO    |   Mean             val MAE 1.318±0.114 | test MAE 1.518 MdAE 1.006
+01:33:40 | INFO    |   Median           val MAE 1.329±0.132 | test MAE 1.574 MdAE 0.500
+01:33:42 | INFO    |   TF-IDF+Ridge     val MAE 1.131±0.092 | test MAE 1.424 MdAE 0.624
+01:33:42 | INFO    |   SBERT+Ridge      val MAE 1.178±0.104 | test MAE 1.448 MdAE 0.598
+01:34:03 | INFO    |   SBERT+CNN        val MAE 1.196±0.124 | test MAE 1.460 MdAE 0.640
+01:34:03 | INFO    | [12/39] Atlassian Confluence Server (n=645)
+01:34:15 | INFO    |   Mean             val MAE 1.260±0.073 | test MAE 1.374 MdAE 1.231
+01:34:15 | INFO    |   Median           val MAE 1.138±0.077 | test MAE 1.236 MdAE 1.000
+01:34:19 | INFO    |   TF-IDF+Ridge     val MAE 1.158±0.063 | test MAE 1.242 MdAE 0.836
+01:34:20 | INFO    |   SBERT+Ridge      val MAE 1.160±0.086 | test MAE 1.247 MdAE 0.897
+01:35:00 | INFO    |   SBERT+CNN        val MAE 1.206±0.074 | test MAE 1.295 MdAE 0.820
+01:35:00 | INFO    | [13/39] Atlassian Crowd (n=213)
+01:35:03 | INFO    |   Mean             val MAE 0.993±0.117 | test MAE 0.911 MdAE 0.744
+01:35:03 | INFO    |   Median           val MAE 0.974±0.190 | test MAE 0.721 MdAE 0.500
+01:35:04 | INFO    |   TF-IDF+Ridge     val MAE 0.902±0.169 | test MAE 0.759 MdAE 0.618
+01:35:04 | INFO    |   SBERT+Ridge      val MAE 0.875±0.121 | test MAE 0.764 MdAE 0.667
+01:35:19 | INFO    |   SBERT+CNN        val MAE 0.893±0.156 | test MAE 0.761 MdAE 0.624
+01:35:19 | INFO    | [14/39] Atlassian FishEye (n=216)
+01:35:22 | INFO    |   Mean             val MAE 1.045±0.167 | test MAE 1.146 MdAE 1.000
+01:35:22 | INFO    |   Median           val MAE 0.949±0.166 | test MAE 1.090 MdAE 0.500
+01:35:23 | INFO    |   TF-IDF+Ridge     val MAE 0.965±0.154 | test MAE 1.050 MdAE 0.774
+01:35:23 | INFO    |   SBERT+Ridge      val MAE 0.965±0.151 | test MAE 1.079 MdAE 0.749
+01:35:38 | INFO    |   SBERT+CNN        val MAE 0.958±0.188 | test MAE 1.090 MdAE 0.723
+01:35:38 | INFO    | [15/39] Atlassian Jira Cloud (n=351)
+01:35:44 | INFO    |   Mean             val MAE 1.256±0.273 | test MAE 1.316 MdAE 0.132
+01:35:44 | INFO    |   Median           val MAE 1.211±0.251 | test MAE 1.239 MdAE 0.000
+01:35:46 | INFO    |   TF-IDF+Ridge     val MAE 1.278±0.252 | test MAE 1.429 MdAE 0.804
+01:35:46 | INFO    |   SBERT+Ridge      val MAE 1.308±0.243 | test MAE 1.468 MdAE 1.079
+01:36:10 | INFO    |   SBERT+CNN        val MAE 1.336±0.299 | test MAE 1.465 MdAE 0.820
+01:36:10 | INFO    | [16/39] Atlassian Jira Server (n=380)
+01:36:16 | INFO    |   Mean             val MAE 2.629±0.661 | test MAE 2.066 MdAE 0.789
+01:36:16 | INFO    |   Median           val MAE 2.149±0.774 | test MAE 1.671 MdAE 0.000
+01:36:18 | INFO    |   TF-IDF+Ridge     val MAE 2.215±0.788 | test MAE 1.770 MdAE 0.524
+01:36:18 | INFO    |   SBERT+Ridge      val MAE 2.024±0.638 | test MAE 1.651 MdAE 1.162
+01:36:48 | INFO    |   SBERT+CNN        val MAE 2.048±0.554 | test MAE 1.644 MdAE 1.027
+01:36:48 | INFO    | [17/39] Atlassian Software Cloud (n=295)
+01:36:52 | INFO    |   Mean             val MAE 2.357±0.419 | test MAE 1.774 MdAE 1.335
+01:36:52 | INFO    |   Median           val MAE 2.226±0.496 | test MAE 1.864 MdAE 1.000
+01:36:53 | INFO    |   TF-IDF+Ridge     val MAE 2.046±0.401 | test MAE 1.766 MdAE 1.563
+01:36:53 | INFO    |   SBERT+Ridge      val MAE 2.000±0.375 | test MAE 1.786 MdAE 1.371
+01:37:16 | INFO    |   SBERT+CNN        val MAE 2.099±0.444 | test MAE 1.741 MdAE 1.314
+01:37:16 | INFO    | [18/39] Command-Line Interface (n=357)
+01:37:22 | INFO    |   Mean             val MAE 1.956±0.161 | test MAE 1.859 MdAE 1.344
+01:37:22 | INFO    |   Median           val MAE 1.807±0.212 | test MAE 1.750 MdAE 2.000
+01:37:23 | INFO    |   TF-IDF+Ridge     val MAE 1.784±0.330 | test MAE 1.664 MdAE 1.296
+01:37:23 | INFO    |   SBERT+Ridge      val MAE 1.737±0.361 | test MAE 1.792 MdAE 1.485
+01:37:41 | INFO    |   SBERT+CNN        val MAE 1.831±0.285 | test MAE 1.869 MdAE 1.590
+01:37:41 | INFO    | [19/39] DotNetNuke Platform (n=2584)
+01:38:19 | INFO    |   Mean             val MAE 1.062±0.085 | test MAE 0.963 MdAE 0.816
+01:38:20 | INFO    |   Median           val MAE 0.964±0.096 | test MAE 0.865 MdAE 1.000
+01:38:28 | INFO    |   TF-IDF+Ridge     val MAE 0.892±0.073 | test MAE 0.765 MdAE 0.529
+01:38:29 | INFO    |   SBERT+Ridge      val MAE 0.927±0.089 | test MAE 0.805 MdAE 0.530
+01:41:00 | INFO    |   SBERT+CNN        val MAE 0.940±0.081 | test MAE 0.856 MdAE 0.609
+01:41:00 | INFO    | [20/39] Hyperledger Blockchain Explorer (n=372)
+01:41:04 | INFO    |   Mean             val MAE 1.133±0.157 | test MAE 1.412 MdAE 0.933
+01:41:04 | INFO    |   Median           val MAE 1.116±0.151 | test MAE 1.400 MdAE 1.000
+01:41:05 | INFO    |   TF-IDF+Ridge     val MAE 1.110±0.167 | test MAE 1.302 MdAE 0.865
+01:41:05 | INFO    |   SBERT+Ridge      val MAE 1.125±0.206 | test MAE 1.335 MdAE 1.108
+01:41:29 | INFO    |   SBERT+CNN        val MAE 1.124±0.161 | test MAE 1.345 MdAE 0.985
+01:41:29 | INFO    | [21/39] Hyperledger Fabric (n=625)
+01:41:35 | INFO    |   Mean             val MAE 1.891±0.186 | test MAE 1.801 MdAE 1.710
+01:41:35 | INFO    |   Median           val MAE 1.622±0.209 | test MAE 1.648 MdAE 1.000
+01:41:37 | INFO    |   TF-IDF+Ridge     val MAE 1.398±0.162 | test MAE 1.271 MdAE 0.798
+01:41:37 | INFO    |   SBERT+Ridge      val MAE 1.386±0.207 | test MAE 1.268 MdAE 0.744
+01:42:28 | INFO    |   SBERT+CNN        val MAE 1.412±0.192 | test MAE 1.398 MdAE 0.785
+01:42:28 | INFO    | [22/39] Hyperledger Indy Node (n=677)
+01:42:36 | INFO    |   Mean             val MAE 1.559±0.063 | test MAE 1.564 MdAE 1.500
+01:42:36 | INFO    |   Median           val MAE 1.394±0.129 | test MAE 1.478 MdAE 1.500
+01:42:39 | INFO    |   TF-IDF+Ridge     val MAE 1.275±0.155 | test MAE 1.279 MdAE 1.047
+01:42:40 | INFO    |   SBERT+Ridge      val MAE 1.396±0.139 | test MAE 1.348 MdAE 1.177
+01:43:18 | INFO    |   SBERT+CNN        val MAE 1.415±0.129 | test MAE 1.366 MdAE 1.102
+01:43:18 | INFO    | [23/39] Hyperledger Indy SDK (n=708)
+01:43:25 | INFO    |   Mean             val MAE 1.902±0.047 | test MAE 1.700 MdAE 1.072
+01:43:25 | INFO    |   Median           val MAE 1.666±0.114 | test MAE 1.465 MdAE 1.000
+01:43:27 | INFO    |   TF-IDF+Ridge     val MAE 1.471±0.140 | test MAE 1.306 MdAE 1.085
+01:43:28 | INFO    |   SBERT+Ridge      val MAE 1.538±0.141 | test MAE 1.279 MdAE 0.898
+01:44:15 | INFO    |   SBERT+CNN        val MAE 1.548±0.127 | test MAE 1.316 MdAE 0.841
+01:44:15 | INFO    | [24/39] Hyperledger Sawtooth (n=941)
+01:44:20 | INFO    |   Mean             val MAE 1.052±0.046 | test MAE 0.994 MdAE 0.617
+01:44:20 | INFO    |   Median           val MAE 0.968±0.037 | test MAE 0.915 MdAE 1.000
+01:44:21 | INFO    |   TF-IDF+Ridge     val MAE 0.912±0.034 | test MAE 0.775 MdAE 0.696
+01:44:23 | INFO    |   SBERT+Ridge      val MAE 0.917±0.050 | test MAE 0.814 MdAE 0.625
+01:45:16 | INFO    |   SBERT+CNN        val MAE 0.937±0.042 | test MAE 0.838 MdAE 0.659
+01:45:16 | INFO    | [25/39] Lsstcorp Data management (n=19655)
+01:48:01 | INFO    |   Mean             val MAE 6.927±0.132 | test MAE 6.879 MdAE 5.041
+01:48:01 | INFO    |   Median           val MAE 5.662±0.121 | test MAE 5.615 MdAE 2.000
+01:48:35 | INFO    |   TF-IDF+Ridge     val MAE 4.327±0.070 | test MAE 4.312 MdAE 1.638
+01:48:40 | INFO    |   SBERT+Ridge      val MAE 4.682±0.090 | test MAE 4.653 MdAE 1.811
+02:15:52 | INFO    |   SBERT+CNN        val MAE 4.670±0.112 | test MAE 4.555 MdAE 1.590
+02:15:53 | INFO    | [26/39] Lyrasis Dura Cloud (n=657)
+02:15:59 | INFO    |   Mean             val MAE 1.121±0.125 | test MAE 1.383 MdAE 1.027
+02:15:59 | INFO    |   Median           val MAE 1.027±0.184 | test MAE 1.402 MdAE 1.000
+02:16:01 | INFO    |   TF-IDF+Ridge     val MAE 0.968±0.167 | test MAE 1.197 MdAE 0.627
+02:16:02 | INFO    |   SBERT+Ridge      val MAE 0.934±0.165 | test MAE 1.171 MdAE 0.645
+02:16:37 | INFO    |   SBERT+CNN        val MAE 0.972±0.180 | test MAE 1.209 MdAE 0.609
+02:16:37 | INFO    | [27/39] MongoDB Compass (n=498)
+02:16:41 | INFO    |   Mean             val MAE 1.338±0.160 | test MAE 1.328 MdAE 1.344
+02:16:41 | INFO    |   Median           val MAE 1.208±0.146 | test MAE 1.190 MdAE 1.000
+02:16:43 | INFO    |   TF-IDF+Ridge     val MAE 1.223±0.141 | test MAE 1.189 MdAE 1.003
+02:16:43 | INFO    |   SBERT+Ridge      val MAE 1.223±0.147 | test MAE 1.197 MdAE 0.987
+02:17:13 | INFO    |   SBERT+CNN        val MAE 1.288±0.061 | test MAE 1.274 MdAE 0.962
+02:17:13 | INFO    | [28/39] MongoDB Core Server (n=743)
+02:17:21 | INFO    |   Mean             val MAE 1.476±0.104 | test MAE 1.779 MdAE 1.650
+02:17:21 | INFO    |   Median           val MAE 1.303±0.127 | test MAE 1.617 MdAE 1.000
+02:17:24 | INFO    |   TF-IDF+Ridge     val MAE 1.176±0.110 | test MAE 1.418 MdAE 0.834
+02:17:25 | INFO    |   SBERT+Ridge      val MAE 1.198±0.117 | test MAE 1.471 MdAE 0.969
+02:18:11 | INFO    |   SBERT+CNN        val MAE 1.230±0.106 | test MAE 1.488 MdAE 0.866
+02:18:11 | INFO    | [29/39] Moodle (n=1524)
+02:18:31 | INFO    |   Mean             val MAE 12.027±0.904 | test MAE 10.737 MdAE 7.710
+02:18:31 | INFO    |   Median           val MAE 9.864±1.055 | test MAE 9.314 MdAE 3.000
+02:18:36 | INFO    |   TF-IDF+Ridge     val MAE 8.769±1.134 | test MAE 7.853 MdAE 3.366
+02:18:39 | INFO    |   SBERT+Ridge      val MAE 8.865±1.028 | test MAE 8.250 MdAE 3.520
+02:20:05 | INFO    |   SBERT+CNN        val MAE 8.954±1.031 | test MAE 8.756 MdAE 3.704
+02:20:05 | INFO    | [30/39] Mule (n=3690)
+02:20:34 | INFO    |   Mean             val MAE 2.990±0.038 | test MAE 2.856 MdAE 2.947
+02:20:34 | INFO    |   Median           val MAE 2.843±0.085 | test MAE 2.711 MdAE 2.000
+02:20:40 | INFO    |   TF-IDF+Ridge     val MAE 2.511±0.062 | test MAE 2.348 MdAE 1.698
+02:20:43 | INFO    |   SBERT+Ridge      val MAE 2.551±0.121 | test MAE 2.369 MdAE 1.752
+02:24:11 | INFO    |   SBERT+CNN        val MAE 2.600±0.130 | test MAE 2.448 MdAE 1.791
+02:24:11 | INFO    | [31/39] Mule APIkit (n=465)
+02:24:14 | INFO    |   Mean             val MAE 2.131±0.175 | test MAE 1.768 MdAE 1.559
+02:24:14 | INFO    |   Median           val MAE 1.952±0.247 | test MAE 1.570 MdAE 2.000
+02:24:15 | INFO    |   TF-IDF+Ridge     val MAE 1.683±0.183 | test MAE 1.618 MdAE 1.400
+02:24:15 | INFO    |   SBERT+Ridge      val MAE 1.687±0.210 | test MAE 1.411 MdAE 1.201
+02:24:46 | INFO    |   SBERT+CNN        val MAE 1.656±0.173 | test MAE 1.466 MdAE 1.159
+02:24:46 | INFO    | [32/39] Sonatype Nexus (n=1803)
+02:25:13 | INFO    |   Mean             val MAE 1.120±0.111 | test MAE 1.145 MdAE 0.815
+02:25:13 | INFO    |   Median           val MAE 0.988±0.104 | test MAE 1.021 MdAE 0.500
+02:25:20 | INFO    |   TF-IDF+Ridge     val MAE 0.949±0.109 | test MAE 0.973 MdAE 0.609
+02:25:22 | INFO    |   SBERT+Ridge      val MAE 0.937±0.107 | test MAE 0.967 MdAE 0.608
+02:27:00 | INFO    |   SBERT+CNN        val MAE 0.952±0.106 | test MAE 0.975 MdAE 0.576
+02:27:00 | INFO    | [33/39] Spring DataCass (n=213)
+02:27:03 | INFO    |   Mean             val MAE 3.650±1.258 | test MAE 2.942 MdAE 3.507
+02:27:03 | INFO    |   Median           val MAE 3.154±1.441 | test MAE 2.837 MdAE 2.000
+02:27:03 | INFO    |   TF-IDF+Ridge     val MAE 2.990±1.491 | test MAE 2.574 MdAE 1.839
+02:27:03 | INFO    |   SBERT+Ridge      val MAE 3.074±1.469 | test MAE 2.866 MdAE 2.116
+02:27:15 | INFO    |   SBERT+CNN        val MAE 3.138±1.438 | test MAE 2.773 MdAE 1.879
+02:27:15 | INFO    | [34/39] Spring XD (n=3538)
+02:27:45 | INFO    |   Mean             val MAE 2.231±0.094 | test MAE 2.507 MdAE 1.718
+02:27:45 | INFO    |   Median           val MAE 2.033±0.113 | test MAE 2.386 MdAE 2.000
+02:27:51 | INFO    |   TF-IDF+Ridge     val MAE 1.785±0.107 | test MAE 2.087 MdAE 1.196
+02:27:54 | INFO    |   SBERT+Ridge      val MAE 1.791±0.081 | test MAE 2.100 MdAE 1.218
+02:31:15 | INFO    |   SBERT+CNN        val MAE 1.842±0.108 | test MAE 2.137 MdAE 1.228
+02:31:15 | INFO    | [35/39] The Mongo C++ driver (n=212)
+02:31:18 | INFO    |   Mean             val MAE 0.641±0.092 | test MAE 0.592 MdAE 0.379
+02:31:18 | INFO    |   Median           val MAE 0.462±0.129 | test MAE 0.407 MdAE 0.000
+02:31:18 | INFO    |   TF-IDF+Ridge     val MAE 0.557±0.105 | test MAE 0.478 MdAE 0.305
+02:31:19 | INFO    |   SBERT+Ridge      val MAE 0.561±0.082 | test MAE 0.450 MdAE 0.317
+02:31:33 | INFO    |   SBERT+CNN        val MAE 0.508±0.113 | test MAE 0.457 MdAE 0.256
+02:31:33 | INFO    | [36/39] The Mongo Java driver (n=238)
+02:31:37 | INFO    |   Mean             val MAE 0.224±0.121 | test MAE 0.116 MdAE 0.116
+02:31:37 | INFO    |   Median           val MAE 0.116±0.160 | test MAE 0.000 MdAE 0.000
+02:31:37 | INFO    |   TF-IDF+Ridge     val MAE 0.159±0.147 | test MAE 0.036 MdAE 0.035
+02:31:37 | INFO    |   SBERT+Ridge      val MAE 0.160±0.151 | test MAE 0.051 MdAE 0.043
+02:31:57 | INFO    |   SBERT+CNN        val MAE 0.127±0.156 | test MAE 0.011 MdAE 0.011
+02:31:57 | INFO    | [37/39] The MongoDB Engineering (n=5064)
+02:32:30 | INFO    |   Mean             val MAE 0.780±0.036 | test MAE 0.790 MdAE 0.868
+02:32:30 | INFO    |   Median           val MAE 0.765±0.033 | test MAE 0.771 MdAE 1.000
+02:32:36 | INFO    |   TF-IDF+Ridge     val MAE 0.730±0.031 | test MAE 0.731 MdAE 0.538
+02:32:39 | INFO    |   SBERT+Ridge      val MAE 0.737±0.035 | test MAE 0.728 MdAE 0.521
+02:37:12 | INFO    |   SBERT+CNN        val MAE 0.749±0.036 | test MAE 0.765 MdAE 0.502
+02:37:12 | INFO    | [38/39] The Titanium SDK (n=4410)
+02:38:10 | INFO    |   Mean             val MAE 3.321±0.073 | test MAE 3.430 MdAE 2.768
+02:38:10 | INFO    |   Median           val MAE 2.987±0.114 | test MAE 3.127 MdAE 2.000
+02:38:21 | INFO    |   TF-IDF+Ridge     val MAE 2.776±0.120 | test MAE 2.899 MdAE 1.808
+02:38:25 | INFO    |   SBERT+Ridge      val MAE 2.824±0.109 | test MAE 2.948 MdAE 1.876
+02:43:00 | INFO    |   SBERT+CNN        val MAE 2.876±0.117 | test MAE 3.000 MdAE 1.811
+02:43:00 | INFO    | [39/39] Titanium Mobile Platform (n=1272)
+02:43:11 | INFO    |   Mean             val MAE 3.292±0.213 | test MAE 3.655 MdAE 3.465
+02:43:11 | INFO    |   Median           val MAE 2.967±0.248 | test MAE 3.304 MdAE 2.000
+02:43:14 | INFO    |   TF-IDF+Ridge     val MAE 2.392±0.145 | test MAE 2.715 MdAE 1.457
+02:43:16 | INFO    |   SBERT+Ridge      val MAE 2.461±0.153 | test MAE 2.933 MdAE 1.542
+02:44:34 | INFO    |   SBERT+CNN        val MAE 2.494±0.231 | test MAE 2.904 MdAE 1.371
+02:44:36 | INFO    | Wrote tables and figures to results
+02:44:45 | INFO    | Loaded SBERT 'sentence-transformers/all-mpnet-base-v2' on cuda (dim=768, max_seq_length=384)
+02:44:55 | INFO    | Loaded SBERT 'sentence-transformers/all-mpnet-base-v2' on cuda (dim=768, max_seq_length=384)
+02:44:55 | INFO    |   Mean             val MAE 5.335±2.619 | test MAE 5.777 MdAE 4.285
+02:44:55 | INFO    |   Median           val MAE 4.360±2.970 | test MAE 4.268 MdAE 2.000
+02:44:55 | INFO    |   TF-IDF+Ridge     val MAE 4.119±2.936 | test MAE 4.212 MdAE 1.336
+02:44:55 | INFO    |   SBERT+Ridge      val MAE 4.255±2.998 | test MAE 4.536 MdAE 1.760
+02:45:10 | INFO    |   SBERT+CNN        val MAE 4.229±2.887 | test MAE 4.323 MdAE 1.477

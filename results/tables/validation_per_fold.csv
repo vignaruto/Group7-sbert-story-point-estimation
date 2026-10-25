@@ -1,0 +1,976 @@
+project,method,fold,mae,mdae
+Alloy Framework,mean_baseline,1,1.426139367664164,1.170984455958549
+Alloy Framework,mean_baseline,2,1.9990483239928096,1.0466321243523318
+Alloy Framework,mean_baseline,3,1.508376288659794,1.1752577319587632
+Alloy Framework,mean_baseline,4,2.256443298969072,1.0257731958762886
+Alloy Framework,mean_baseline,5,2.1058848797250858,1.108247422680412
+Alloy Framework,median_baseline,1,1.163265306122449,1.0
+Alloy Framework,median_baseline,2,1.9795918367346939,2.0
+Alloy Framework,median_baseline,3,1.3125,2.0
+Alloy Framework,median_baseline,4,2.0,1.0
+Alloy Framework,median_baseline,5,1.875,2.0
+Alloy Framework,tfidf_ridge,1,1.2469611451365503,1.1020898517959812
+Alloy Framework,tfidf_ridge,2,1.9492253099860057,1.4733428183782138
+Alloy Framework,tfidf_ridge,3,1.2775156795467366,0.9119094676734731
+Alloy Framework,tfidf_ridge,4,2.035195931052739,1.1223981688284839
+Alloy Framework,tfidf_ridge,5,1.9701299419914922,1.4109513983139446
+Alloy Framework,sbert_ridge,1,1.1990752025526397,0.9644160270690918
+Alloy Framework,sbert_ridge,2,1.9038190549733687,1.3432393074035645
+Alloy Framework,sbert_ridge,3,1.325197810928027,1.086876392364502
+Alloy Framework,sbert_ridge,4,2.1249654044707618,1.2324248552322388
+Alloy Framework,sbert_ridge,5,1.9440163771311443,1.2367528676986694
+Alloy Framework,sbert_cnn,1,1.1901808550781816,1.0504400366355955
+Alloy Framework,sbert_cnn,2,1.9165610996834235,1.202185345618827
+Alloy Framework,sbert_cnn,3,1.3753739625888288,1.5260840596932235
+Alloy Framework,sbert_cnn,4,2.1445789626080747,1.1320195900420598
+Alloy Framework,sbert_cnn,5,1.9481722586794141,1.3563670293873435
+Apache MXNet,mean_baseline,1,9.643706293706293,3.026923076923077
+Apache MXNet,mean_baseline,2,3.6614219114219106,3.588461538461538
+Apache MXNet,mean_baseline,3,6.025058275058274,3.3269230769230766
+Apache MXNet,mean_baseline,4,3.4834208015267176,3.7480916030534353
+Apache MXNet,mean_baseline,5,3.8618797709923665,3.729007633587786
+Apache MXNet,median_baseline,1,9.454545454545455,2.0
+Apache MXNet,median_baseline,2,2.878787878787879,2.0
+Apache MXNet,median_baseline,3,4.515151515151516,2.0
+Apache MXNet,median_baseline,4,2.359375,2.0
+Apache MXNet,median_baseline,5,2.59375,2.0
+Apache MXNet,tfidf_ridge,1,9.078878985225915,1.8254923935942813
+Apache MXNet,tfidf_ridge,2,2.5414083450304865,1.5393075195585615
+Apache MXNet,tfidf_ridge,3,4.514652897066681,1.3264426512292138
+Apache MXNet,tfidf_ridge,4,2.0239441836846157,1.6598197227905895
+Apache MXNet,tfidf_ridge,5,2.4338405130991827,1.7160377016985555
+Apache MXNet,sbert_ridge,1,9.297863349770054,2.455860137939453
+Apache MXNet,sbert_ridge,2,2.7296802094488433,1.2352360486984253
+Apache MXNet,sbert_ridge,3,4.724472399913903,1.7485771179199219
+Apache MXNet,sbert_ridge,4,2.3854418620467186,2.0259246826171875
+Apache MXNet,sbert_ridge,5,2.137300442904234,1.2256635427474976
+Apache MXNet,sbert_cnn,1,9.079205083429647,2.2816324932624745
+Apache MXNet,sbert_cnn,2,2.6764567825396988,1.609706396967228
+Apache MXNet,sbert_cnn,3,4.704255754533638,1.832684425579758
+Apache MXNet,sbert_cnn,4,2.177078013288543,1.3789463744318264
+Apache MXNet,sbert_cnn,5,2.508757849327951,1.6628557266451498
+Apache Mesos,mean_baseline,1,1.4989699653270145,1.2722966507177036
+Apache Mesos,mean_baseline,2,1.5823378191698612,1.1851674641148326
+Apache Mesos,mean_baseline,3,1.5375244952290341,1.1971770334928231
+Apache Mesos,mean_baseline,4,1.6105172505409977,1.1966044954567194
+Apache Mesos,mean_baseline,5,1.5957836082755688,1.1879961740793878
+Apache Mesos,median_baseline,1,1.3422562141491396,1.0
+Apache Mesos,median_baseline,2,1.502676864244742,1.0
+Apache Mesos,median_baseline,3,1.4474187380497132,1.0
+Apache Mesos,median_baseline,4,1.5095785440613028,1.0
+Apache Mesos,median_baseline,5,1.5057471264367817,1.0
+Apache Mesos,tfidf_ridge,1,1.2559803448455955,0.8941324343441279
+Apache Mesos,tfidf_ridge,2,1.377910606863133,0.9315006150610152
+Apache Mesos,tfidf_ridge,3,1.368671840369197,1.030873601605986
+Apache Mesos,tfidf_ridge,4,1.3943760910904968,0.892239048507742
+Apache Mesos,tfidf_ridge,5,1.398627910442827,0.9628313009991625
+Apache Mesos,sbert_ridge,1,1.1995936264043556,0.8372707366943359
+Apache Mesos,sbert_ridge,2,1.352940974955805,0.9395208358764648
+Apache Mesos,sbert_ridge,3,1.3774529402616147,0.927220344543457
+Apache Mesos,sbert_ridge,4,1.4024761394522656,0.8954866528511047
+Apache Mesos,sbert_ridge,5,1.392653240326264,0.9309572577476501
+Apache Mesos,sbert_cnn,1,1.2190599598049454,0.8785864703555193
+Apache Mesos,sbert_cnn,2,1.4184476968946704,1.0144909789929129
+Apache Mesos,sbert_cnn,3,1.3650754318595193,0.9499431590524856
+Apache Mesos,sbert_cnn,4,1.4133292257693946,0.7909915117601991
+Apache Mesos,sbert_cnn,5,1.429695852755501,0.965000462304676
+Apache Usergrid,mean_baseline,1,1.1014425314099578,0.16612377850162874
+Apache Usergrid,mean_baseline,2,0.6696983797960996,0.019543973941368087
+Apache Usergrid,mean_baseline,3,0.9649731376115742,0.9478827361563518
+Apache Usergrid,mean_baseline,4,0.7658107364947756,0.03583061889250816
+Apache Usergrid,mean_baseline,5,0.9007177033492821,0.051948051948051965
+Apache Usergrid,median_baseline,1,1.0129870129870129,0.0
+Apache Usergrid,median_baseline,2,0.6623376623376623,0.0
+Apache Usergrid,median_baseline,3,0.948051948051948,1.0
+Apache Usergrid,median_baseline,4,0.7532467532467533,0.0
+Apache Usergrid,median_baseline,5,0.881578947368421,0.0
+Apache Usergrid,tfidf_ridge,1,1.1097491328810667,0.5669872466381456
+Apache Usergrid,tfidf_ridge,2,0.7167494340810409,0.3919395428824304
+Apache Usergrid,tfidf_ridge,3,0.968786208989748,0.4796180340987073
+Apache Usergrid,tfidf_ridge,4,0.8399294276606962,0.43911600540683704
+Apache Usergrid,tfidf_ridge,5,0.87949114108683,0.4019357895579221
+Apache Usergrid,sbert_ridge,1,1.1439421084020045,0.5264632701873779
+Apache Usergrid,sbert_ridge,2,0.700723462290578,0.401747465133667
+Apache Usergrid,sbert_ridge,3,0.9932170781222257,0.4575014114379883
+Apache Usergrid,sbert_ridge,4,0.8236557539407309,0.46136045455932617
+Apache Usergrid,sbert_ridge,5,0.9226659724586889,0.4876753091812134
+Apache Usergrid,sbert_cnn,1,1.189586996826652,0.5476413638560276
+Apache Usergrid,sbert_cnn,2,0.7649650820627186,0.439648364635711
+Apache Usergrid,sbert_cnn,3,1.040861409055749,0.6150988350710591
+Apache Usergrid,sbert_cnn,4,0.8489637060429546,0.530927367842756
+Apache Usergrid,sbert_cnn,5,0.9420845131947838,0.6011277483525319
+Appcelerator Daemon,mean_baseline,1,7.39165409753645,5.091503267973856
+Appcelerator Daemon,mean_baseline,2,5.869616222557399,5.836601307189543
+Appcelerator Daemon,mean_baseline,3,7.2368421052631575,5.0
+Appcelerator Daemon,mean_baseline,4,5.488721804511279,4.292207792207792
+Appcelerator Daemon,mean_baseline,5,5.419685577580314,3.8441558441558445
+Appcelerator Daemon,median_baseline,1,7.615384615384615,4.0
+Appcelerator Daemon,median_baseline,2,4.794871794871795,3.0
+Appcelerator Daemon,median_baseline,3,7.2368421052631575,3.0
+Appcelerator Daemon,median_baseline,4,4.131578947368421,3.0
+Appcelerator Daemon,median_baseline,5,3.736842105263158,3.0
+Appcelerator Daemon,tfidf_ridge,1,6.610226835913934,3.3037697014194656
+Appcelerator Daemon,tfidf_ridge,2,4.35620438146826,3.1067086393755607
+Appcelerator Daemon,tfidf_ridge,3,6.320279850513699,2.0918790821301845
+Appcelerator Daemon,tfidf_ridge,4,4.142722383273371,2.8085251396747415
+Appcelerator Daemon,tfidf_ridge,5,4.005398448126438,2.9936388194623302
+Appcelerator Daemon,sbert_ridge,1,7.00232945344387,3.1645851135253906
+Appcelerator Daemon,sbert_ridge,2,4.554239419790415,3.0352277755737305
+Appcelerator Daemon,sbert_ridge,3,6.6576883604652,3.2627065181732178
+Appcelerator Daemon,sbert_ridge,4,3.808077674163015,2.5111643075942993
+Appcelerator Daemon,sbert_ridge,5,3.6864069386532434,2.146730422973633
+Appcelerator Daemon,sbert_cnn,1,7.237485423128174,3.7904653045577117
+Appcelerator Daemon,sbert_cnn,2,4.491912121002837,3.307749433847307
+Appcelerator Daemon,sbert_cnn,3,6.357939762511421,2.5879589472750992
+Appcelerator Daemon,sbert_cnn,4,3.3960607922711827,1.8472605926311145
+Appcelerator Daemon,sbert_cnn,5,4.100307977585716,2.6925459838605597
+Appcelerator Studio,mean_baseline,1,2.2434476510702352,2.3705463182897866
+Appcelerator Studio,mean_baseline,2,2.3845592179098287,2.382422802850356
+Appcelerator Studio,mean_baseline,3,2.3002339865457735,2.346153846153846
+Appcelerator Studio,mean_baseline,4,2.4593863630619017,2.4439696106362776
+Appcelerator Studio,mean_baseline,5,2.320895576282142,2.312915479582146
+Appcelerator Studio,median_baseline,1,1.9962049335863377,2.0
+Appcelerator Studio,median_baseline,2,2.153700189753321,2.0
+Appcelerator Studio,median_baseline,3,2.0342205323193916,2.0
+Appcelerator Studio,median_baseline,4,2.277566539923954,2.0
+Appcelerator Studio,median_baseline,5,2.0570342205323193,2.0
+Appcelerator Studio,tfidf_ridge,1,2.0427596900565645,1.3329174605490213
+Appcelerator Studio,tfidf_ridge,2,2.105936533091621,1.5065243717554289
+Appcelerator Studio,tfidf_ridge,3,1.986295496065601,1.4275512045483776
+Appcelerator Studio,tfidf_ridge,4,2.255459978235889,1.580451384920478
+Appcelerator Studio,tfidf_ridge,5,1.9242674429280808,1.4094860239658624
+Appcelerator Studio,sbert_ridge,1,1.9822094060438182,1.5212178230285645
+Appcelerator Studio,sbert_ridge,2,2.1424925802328554,1.6093220710754395
+Appcelerator Studio,sbert_ridge,3,2.0150964654443837,1.4255242347717285
+Appcelerator Studio,sbert_ridge,4,2.267684006872286,1.5390536785125732
+Appcelerator Studio,sbert_ridge,5,2.010351006522378,1.6446623802185059
+Appcelerator Studio,sbert_cnn,1,2.015334156382803,1.4030696927905177
+Appcelerator Studio,sbert_cnn,2,2.144652290339089,1.7908737554846992
+Appcelerator Studio,sbert_cnn,3,2.00344532014661,1.8419890971661776
+Appcelerator Studio,sbert_cnn,4,2.318187330873497,1.6766587698428355
+Appcelerator Studio,sbert_cnn,5,2.0163578723309694,1.730191270623259
+Aptana Studio,mean_baseline,1,4.584286898839137,4.300373134328359
+Aptana Studio,mean_baseline,2,5.220461936129409,3.521415270018622
+Aptana Studio,mean_baseline,3,5.154909808499403,4.0
+Aptana Studio,mean_baseline,4,3.4747769532227135,3.737430167597765
+Aptana Studio,mean_baseline,5,5.397064954556825,3.5027932960893846
+Aptana Studio,median_baseline,1,4.288888888888889,5.0
+Aptana Studio,median_baseline,2,4.940298507462686,3.0
+Aptana Studio,median_baseline,3,4.962686567164179,4.0
+Aptana Studio,median_baseline,4,3.08955223880597,3.0
+Aptana Studio,median_baseline,5,5.119402985074627,3.0
+Aptana Studio,tfidf_ridge,1,3.9222599630332793,2.756038093576225
+Aptana Studio,tfidf_ridge,2,4.661098686299458,2.5605081554961138
+Aptana Studio,tfidf_ridge,3,4.690268358803484,2.761776514139335
+Aptana Studio,tfidf_ridge,4,3.1499423144477827,2.028469178845881
+Aptana Studio,tfidf_ridge,5,4.883485042464569,2.4052715906742654
+Aptana Studio,sbert_ridge,1,3.917125294826649,2.886768341064453
+Aptana Studio,sbert_ridge,2,4.489258070490253,2.089293360710144
+Aptana Studio,sbert_ridge,3,4.557037727156682,2.596092700958252
+Aptana Studio,sbert_ridge,4,3.410924783393518,2.59419322013855
+Aptana Studio,sbert_ridge,5,5.007251396108029,2.654644727706909
+Aptana Studio,sbert_cnn,1,3.946687197741036,2.7221760966437083
+Aptana Studio,sbert_cnn,2,4.5475700679581905,2.255559313799416
+Aptana Studio,sbert_cnn,3,4.728963242502276,2.540553495683823
+Aptana Studio,sbert_cnn,4,3.3094386408573646,2.4919029073740333
+Aptana Studio,sbert_cnn,5,5.0347403381353715,2.268325062258244
+Atlassian Atlassian Software Server,mean_baseline,1,2.2144970414201186,2.447115384615385
+Atlassian Atlassian Software Server,mean_baseline,2,2.7233727810650894,2.3269230769230766
+Atlassian Atlassian Software Server,mean_baseline,3,2.7573964497041428,2.2980769230769234
+Atlassian Atlassian Software Server,mean_baseline,4,2.171782544378698,2.0
+Atlassian Atlassian Software Server,mean_baseline,5,2.2215236686390534,1.4519230769230766
+Atlassian Atlassian Software Server,median_baseline,1,2.0384615384615383,1.0
+Atlassian Atlassian Software Server,median_baseline,2,2.6346153846153846,2.0
+Atlassian Atlassian Software Server,median_baseline,3,2.7884615384615383,2.0
+Atlassian Atlassian Software Server,median_baseline,4,1.9615384615384615,1.0
+Atlassian Atlassian Software Server,median_baseline,5,2.0961538461538463,2.0
+Atlassian Atlassian Software Server,tfidf_ridge,1,1.9970905965297552,1.4801978837730037
+Atlassian Atlassian Software Server,tfidf_ridge,2,2.323019163887516,1.6195025681510828
+Atlassian Atlassian Software Server,tfidf_ridge,3,2.48245273153027,1.8416782779914644
+Atlassian Atlassian Software Server,tfidf_ridge,4,1.8085848571272127,1.121302568909513
+Atlassian Atlassian Software Server,tfidf_ridge,5,1.9583464802767976,1.3630686735411521
+Atlassian Atlassian Software Server,sbert_ridge,1,2.0026801320222707,1.7005113363265991
+Atlassian Atlassian Software Server,sbert_ridge,2,2.325187534093857,1.3912944793701172
+Atlassian Atlassian Software Server,sbert_ridge,3,2.4595045951696544,1.631160855293274
+Atlassian Atlassian Software Server,sbert_ridge,4,1.677739611038795,1.1325976848602295
+Atlassian Atlassian Software Server,sbert_ridge,5,2.0843764887406278,1.2530268430709839
+Atlassian Atlassian Software Server,sbert_cnn,1,1.987151396732603,1.461289321460598
+Atlassian Atlassian Software Server,sbert_cnn,2,2.55480241241097,1.5646591763394402
+Atlassian Atlassian Software Server,sbert_cnn,3,2.6750575416072775,1.9719758653256292
+Atlassian Atlassian Software Server,sbert_cnn,4,1.8125180606576572,1.1857588305918931
+Atlassian Atlassian Software Server,sbert_cnn,5,2.0938785553336987,1.4019943199344234
+Atlassian Bamboo,mean_baseline,1,1.379977225977079,0.6600609756097562
+Atlassian Bamboo,mean_baseline,2,1.2475906294017347,0.6443768996960486
+Atlassian Bamboo,mean_baseline,3,1.2969085921862258,0.688449848024316
+Atlassian Bamboo,mean_baseline,4,1.206279190451479,0.6458966565349544
+Atlassian Bamboo,mean_baseline,5,1.3291200237230336,1.4088145896656536
+Atlassian Bamboo,median_baseline,1,1.2530120481927711,1.0
+Atlassian Bamboo,median_baseline,2,1.0914634146341464,1.0
+Atlassian Bamboo,median_baseline,3,1.1829268292682926,1.0
+Atlassian Bamboo,median_baseline,4,1.0853658536585367,1.0
+Atlassian Bamboo,median_baseline,5,1.1097560975609757,1.0
+Atlassian Bamboo,tfidf_ridge,1,1.2026360211059255,0.7064706914109105
+Atlassian Bamboo,tfidf_ridge,2,1.077004502606182,0.6585211457108249
+Atlassian Bamboo,tfidf_ridge,3,1.1368119273083386,0.7056848056535585
+Atlassian Bamboo,tfidf_ridge,4,1.1219115049690396,0.7203695744645741
+Atlassian Bamboo,tfidf_ridge,5,1.0638517026543275,0.7470935577297126
+Atlassian Bamboo,sbert_ridge,1,1.1856589137789715,0.7002642154693604
+Atlassian Bamboo,sbert_ridge,2,1.06478354552897,0.7233790755271912
+Atlassian Bamboo,sbert_ridge,3,1.1074991022668235,0.6246013641357422
+Atlassian Bamboo,sbert_ridge,4,1.0558557045168993,0.6909195184707642
+Atlassian Bamboo,sbert_ridge,5,1.0394792404116653,0.7086640000343323
+Atlassian Bamboo,sbert_cnn,1,1.2346425293336767,0.728538550113977
+Atlassian Bamboo,sbert_cnn,2,1.1287935531139002,0.6488069185075263
+Atlassian Bamboo,sbert_cnn,3,1.252959858471166,0.7176760155609491
+Atlassian Bamboo,sbert_cnn,4,1.131686648253736,0.7939167710893329
+Atlassian Bamboo,sbert_cnn,5,1.123450592783331,0.8877051391766859
+Atlassian Clover,mean_baseline,1,5.584049986562753,4.700819672131147
+Atlassian Clover,mean_baseline,2,5.728869927438859,3.5594262295081966
+Atlassian Clover,mean_baseline,3,6.111764310669173,3.5594262295081966
+Atlassian Clover,mean_baseline,4,5.35857296425692,3.668032786885246
+Atlassian Clover,mean_baseline,5,4.489317387798978,4.077868852459017
+Atlassian Clover,median_baseline,1,4.549180327868853,2.0
+Atlassian Clover,median_baseline,2,4.885245901639344,1.0
+Atlassian Clover,median_baseline,3,4.983606557377049,1.0
+Atlassian Clover,median_baseline,4,4.401639344262295,1.0
+Atlassian Clover,median_baseline,5,2.9262295081967213,1.0
+Atlassian Clover,tfidf_ridge,1,3.364082579283179,1.4842864612745688
+Atlassian Clover,tfidf_ridge,2,4.45613881523316,1.6126034934108282
+Atlassian Clover,tfidf_ridge,3,4.451009581224814,1.9106437187053857
+Atlassian Clover,tfidf_ridge,4,4.089020246604133,1.778323131829635
+Atlassian Clover,tfidf_ridge,5,2.1852004922508197,1.7264566638386962
+Atlassian Clover,sbert_ridge,1,3.8476268043283555,1.5817763805389404
+Atlassian Clover,sbert_ridge,2,4.104519265596984,1.2951650619506836
+Atlassian Clover,sbert_ridge,3,4.695156736452072,1.7387666702270508
+Atlassian Clover,sbert_ridge,4,4.34749645971861,1.7991786003112793
+Atlassian Clover,sbert_ridge,5,2.7313523722476645,1.3169047832489014
+Atlassian Clover,sbert_cnn,1,4.131484604848202,1.6383837191187456
+Atlassian Clover,sbert_cnn,2,4.1473846356637125,1.0888361357357468
+Atlassian Clover,sbert_cnn,3,4.925720294937986,1.737764740478931
+Atlassian Clover,sbert_cnn,4,4.460944003611566,1.7876939266092133
+Atlassian Clover,sbert_cnn,5,2.7041309018081874,1.4287931517148422
+Atlassian Confluence Cloud,mean_baseline,1,1.2771260997067448,1.0069124423963132
+Atlassian Confluence Cloud,mean_baseline,2,1.425932132383745,0.914746543778802
+Atlassian Confluence Cloud,mean_baseline,3,1.1385490995582739,1.0435779816513762
+Atlassian Confluence Cloud,mean_baseline,4,1.369520897043833,1.0298165137614679
+Atlassian Confluence Cloud,mean_baseline,5,1.3777607883112468,1.0321100917431192
+Atlassian Confluence Cloud,median_baseline,1,1.2727272727272727,1.0
+Atlassian Confluence Cloud,median_baseline,2,1.509090909090909,1.0
+Atlassian Confluence Cloud,median_baseline,3,1.1481481481481481,1.0
+Atlassian Confluence Cloud,median_baseline,4,1.3518518518518519,1.0
+Atlassian Confluence Cloud,median_baseline,5,1.3611111111111112,1.0
+Atlassian Confluence Cloud,tfidf_ridge,1,1.0383607432922861,0.5711054134424249
+Atlassian Confluence Cloud,tfidf_ridge,2,1.180074659823418,0.6227239116932295
+Atlassian Confluence Cloud,tfidf_ridge,3,1.0296756967003358,0.8276371363671786
+Atlassian Confluence Cloud,tfidf_ridge,4,1.1765657977379222,0.7557639402648013
+Atlassian Confluence Cloud,tfidf_ridge,5,1.2320826700824947,0.9950458076441706
+Atlassian Confluence Cloud,sbert_ridge,1,1.1560974251140248,0.5039172172546387
+Atlassian Confluence Cloud,sbert_ridge,2,1.3150688864968039,0.48717761039733887
+Atlassian Confluence Cloud,sbert_ridge,3,1.0271347893608942,0.5972739458084106
+Atlassian Confluence Cloud,sbert_ridge,4,1.1864137958597254,0.6836150884628296
+Atlassian Confluence Cloud,sbert_ridge,5,1.2073301408025954,0.6808469295501709
+Atlassian Confluence Cloud,sbert_cnn,1,1.05330129393227,0.4515907653672544
+Atlassian Confluence Cloud,sbert_cnn,2,1.3466111019595683,0.5118299393142629
+Atlassian Confluence Cloud,sbert_cnn,3,1.1265487674044203,0.5093332962448431
+Atlassian Confluence Cloud,sbert_cnn,4,1.1482983701825753,0.5407318802763172
+Atlassian Confluence Cloud,sbert_cnn,5,1.3040056064958605,0.9393715549949501
+Atlassian Confluence Server,mean_baseline,1,1.2141523525018671,1.254854368932039
+Atlassian Confluence Server,mean_baseline,2,1.1599003267589743,1.2227602905569008
+Atlassian Confluence Server,mean_baseline,3,1.325395519405722,1.3002421307506054
+Atlassian Confluence Server,mean_baseline,4,1.33070829121512,1.179176755447942
+Atlassian Confluence Server,mean_baseline,5,1.2697759702860905,1.1961259079903148
+Atlassian Confluence Server,median_baseline,1,1.0769230769230769,1.0
+Atlassian Confluence Server,median_baseline,2,1.058252427184466,1.0
+Atlassian Confluence Server,median_baseline,3,1.1359223300970873,1.0
+Atlassian Confluence Server,median_baseline,4,1.2524271844660195,1.0
+Atlassian Confluence Server,median_baseline,5,1.1650485436893203,1.0
+Atlassian Confluence Server,tfidf_ridge,1,1.1032838651376982,0.8533912363083054
+Atlassian Confluence Server,tfidf_ridge,2,1.1084843090813679,0.8855333075278891
+Atlassian Confluence Server,tfidf_ridge,3,1.1459307372710552,0.9485163709752538
+Atlassian Confluence Server,tfidf_ridge,4,1.2583984274781956,0.8302906259957008
+Atlassian Confluence Server,tfidf_ridge,5,1.1752389535372307,0.7519755231813594
+Atlassian Confluence Server,sbert_ridge,1,1.0918436761085804,0.8667886257171631
+Atlassian Confluence Server,sbert_ridge,2,1.0870387044925134,0.896977424621582
+Atlassian Confluence Server,sbert_ridge,3,1.1405429261402018,0.9754228591918945
+Atlassian Confluence Server,sbert_ridge,4,1.2951664322788277,0.8405368328094482
+Atlassian Confluence Server,sbert_ridge,5,1.1871974329346593,0.8241021633148193
+Atlassian Confluence Server,sbert_cnn,1,1.2097894694974187,0.8184594519115971
+Atlassian Confluence Server,sbert_cnn,2,1.1552967123622384,0.6708548929771045
+Atlassian Confluence Server,sbert_cnn,3,1.1516183250549328,0.8280534768232197
+Atlassian Confluence Server,sbert_cnn,4,1.3325812661059702,0.814783360175928
+Atlassian Confluence Server,sbert_cnn,5,1.1822774192030572,0.6914520946530232
+Atlassian Crowd,mean_baseline,1,0.855536332179931,0.7941176470588236
+Atlassian Crowd,mean_baseline,2,1.033304498269896,0.7720588235294117
+Atlassian Crowd,mean_baseline,3,1.1074826989619377,0.6727941176470589
+Atlassian Crowd,mean_baseline,4,0.8814878892733563,0.8088235294117647
+Atlassian Crowd,mean_baseline,5,1.0871539792387543,0.6727941176470589
+Atlassian Crowd,median_baseline,1,0.8088235294117647,0.5
+Atlassian Crowd,median_baseline,2,0.8970588235294118,0.5
+Atlassian Crowd,median_baseline,3,1.1470588235294117,1.0
+Atlassian Crowd,median_baseline,4,0.8088235294117647,0.5
+Atlassian Crowd,median_baseline,5,1.2058823529411764,1.0
+Atlassian Crowd,tfidf_ridge,1,0.6975743790654727,0.5433427000321814
+Atlassian Crowd,tfidf_ridge,2,0.9278361909242655,0.6083180278262219
+Atlassian Crowd,tfidf_ridge,3,1.0807578477989477,0.6490174917024931
+Atlassian Crowd,tfidf_ridge,4,0.7621462208175809,0.5153532629347062
+Atlassian Crowd,tfidf_ridge,5,1.0431301058222835,0.7625537202763333
+Atlassian Crowd,sbert_ridge,1,0.7532431360553292,0.6689451932907104
+Atlassian Crowd,sbert_ridge,2,0.8225554841406205,0.6038817167282104
+Atlassian Crowd,sbert_ridge,3,0.9293673704652226,0.5490004420280457
+Atlassian Crowd,sbert_ridge,4,0.8115422375061933,0.828431248664856
+Atlassian Crowd,sbert_ridge,5,1.0596241512719322,0.8339682817459106
+Atlassian Crowd,sbert_cnn,1,0.7295706302265863,0.6786265332030358
+Atlassian Crowd,sbert_cnn,2,0.8311161044062347,0.5487713732434496
+Atlassian Crowd,sbert_cnn,3,1.0222420275794069,0.6710460034056089
+Atlassian Crowd,sbert_cnn,4,0.7889122956216402,0.6622223850095275
+Atlassian Crowd,sbert_cnn,5,1.0915197916847208,0.7709759580960442
+Atlassian FishEye,mean_baseline,1,1.0219395203334725,1.0892944038905108
+Atlassian FishEye,mean_baseline,2,0.8757594716719499,0.5984184914817519
+Atlassian FishEye,mean_baseline,3,1.3247229326611252,1.0539855072463766
+Atlassian FishEye,mean_baseline,4,0.9835606706445015,0.6176328502391306
+Atlassian FishEye,mean_baseline,5,1.0191247513491049,1.1850241545869564
+Atlassian FishEye,median_baseline,1,0.9714285714285714,0.5
+Atlassian FishEye,median_baseline,2,0.8928571428571429,1.0
+Atlassian FishEye,median_baseline,3,1.2269607843235293,0.5833333334999999
+Atlassian FishEye,median_baseline,4,0.8382352941176471,0.5
+Atlassian FishEye,median_baseline,5,0.8176470588235294,0.5
+Atlassian FishEye,tfidf_ridge,1,1.0198729057083646,0.867085351607737
+Atlassian FishEye,tfidf_ridge,2,0.7440720146176831,0.5855946186142749
+Atlassian FishEye,tfidf_ridge,3,1.1659901775261818,0.7092002794760446
+Atlassian FishEye,tfidf_ridge,4,0.9834100933957397,0.7781486252283074
+Atlassian FishEye,tfidf_ridge,5,0.9119778484279039,0.9590301023856109
+Atlassian FishEye,sbert_ridge,1,0.9783784287316458,0.8735599517822266
+Atlassian FishEye,sbert_ridge,2,0.750490072795323,0.5670450925827026
+Atlassian FishEye,sbert_ridge,3,1.173337311380504,0.7185415029525757
+Atlassian FishEye,sbert_ridge,4,0.9934439834426431,0.845463752746582
+Atlassian FishEye,sbert_ridge,5,0.9316469199517194,0.8199348449707031
+Atlassian FishEye,sbert_cnn,1,0.9725606396785474,0.676518519097131
+Atlassian FishEye,sbert_cnn,2,0.7022896570660386,0.566491092469511
+Atlassian FishEye,sbert_cnn,3,1.2268218166486693,0.8865188165916906
+Atlassian FishEye,sbert_cnn,4,0.9848575992415131,0.9083704612325908
+Atlassian FishEye,sbert_cnn,5,0.9054806864661347,0.7721192800298933
+Atlassian Jira Cloud,mean_baseline,1,1.5299744897959182,1.7633928571428572
+Atlassian Jira Cloud,mean_baseline,2,0.9094387755102041,0.05803571428571441
+Atlassian Jira Cloud,mean_baseline,3,1.4988839285714286,1.8616071428571428
+Atlassian Jira Cloud,mean_baseline,4,1.0494260204081631,0.09821428571428559
+Atlassian Jira Cloud,mean_baseline,5,1.2916135204081631,0.5
+Atlassian Jira Cloud,median_baseline,1,1.4285714285714286,2.0
+Atlassian Jira Cloud,median_baseline,2,0.8928571428571429,0.0
+Atlassian Jira Cloud,median_baseline,3,1.4642857142857142,2.0
+Atlassian Jira Cloud,median_baseline,4,1.0178571428571428,0.0
+Atlassian Jira Cloud,median_baseline,5,1.25,0.5
+Atlassian Jira Cloud,tfidf_ridge,1,1.605509734081165,1.0177605773117846
+Atlassian Jira Cloud,tfidf_ridge,2,0.9861364873977391,0.799257131684475
+Atlassian Jira Cloud,tfidf_ridge,3,1.4039548792812842,1.2129802841221227
+Atlassian Jira Cloud,tfidf_ridge,4,1.0710410749898918,0.49924962477824986
+Atlassian Jira Cloud,tfidf_ridge,5,1.3255340529153927,0.6893571949713133
+Atlassian Jira Cloud,sbert_ridge,1,1.6125887802668981,1.110701560974121
+Atlassian Jira Cloud,sbert_ridge,2,1.1004517206123896,0.9447846412658691
+Atlassian Jira Cloud,sbert_ridge,3,1.458032407930919,1.1455897092819214
+Atlassian Jira Cloud,sbert_ridge,4,1.0294308151517595,0.7641680240631104
+Atlassian Jira Cloud,sbert_ridge,5,1.3377784618309565,0.95048987865448
+Atlassian Jira Cloud,sbert_cnn,1,1.711807282200293,1.1974463424103392
+Atlassian Jira Cloud,sbert_cnn,2,0.988189854664541,0.8504842469782428
+Atlassian Jira Cloud,sbert_cnn,3,1.517065549156068,1.0588095228770045
+Atlassian Jira Cloud,sbert_cnn,4,1.090126673901501,0.7892641068364858
+Atlassian Jira Cloud,sbert_cnn,5,1.37468178609482,1.0075663183765438
+Atlassian Jira Server,mean_baseline,1,2.5865209471766852,0.8888888888888893
+Atlassian Jira Server,mean_baseline,2,2.1446400863522905,0.8600823045267489
+Atlassian Jira Server,mean_baseline,3,2.518383593064832,2.7942386831275723
+Atlassian Jira Server,mean_baseline,4,2.1416717263711798,2.958847736625515
+Atlassian Jira Server,mean_baseline,5,3.751366120218579,1.5
+Atlassian Jira Server,median_baseline,1,1.901639344262295,0.0
+Atlassian Jira Server,median_baseline,2,1.6229508196721312,0.0
+Atlassian Jira Server,median_baseline,3,2.1147540983606556,2.0
+Atlassian Jira Server,median_baseline,4,1.6229508196721312,2.0
+Atlassian Jira Server,median_baseline,5,3.4833333333333334,1.5
+Atlassian Jira Server,tfidf_ridge,1,1.9572000789587618,0.4770545958521919
+Atlassian Jira Server,tfidf_ridge,2,1.707160943923718,0.34713900976423373
+Atlassian Jira Server,tfidf_ridge,3,2.1937897437319354,1.652730327757192
+Atlassian Jira Server,tfidf_ridge,4,1.646362960695065,1.6673464309620454
+Atlassian Jira Server,tfidf_ridge,5,3.5691488794166415,1.103107476432616
+Atlassian Jira Server,sbert_ridge,1,1.7186985054954154,1.1816916465759277
+Atlassian Jira Server,sbert_ridge,2,1.5463792183360114,1.175325870513916
+Atlassian Jira Server,sbert_ridge,3,2.0100581489625524,1.428981065750122
+Atlassian Jira Server,sbert_ridge,4,1.7188703662059346,1.4073915481567383
+Atlassian Jira Server,sbert_ridge,5,3.124638787905375,1.0148847103118896
+Atlassian Jira Server,sbert_cnn,1,1.9554151187073054,1.27983544203701
+Atlassian Jira Server,sbert_cnn,2,1.7021723476167203,1.0346755666152365
+Atlassian Jira Server,sbert_cnn,3,1.8785569030427938,1.380398676230806
+Atlassian Jira Server,sbert_cnn,4,1.6863393619240101,1.1249845636267732
+Atlassian Jira Server,sbert_cnn,5,3.0178359237661367,1.102434213150919
+Atlassian Software Cloud,mean_baseline,1,1.9778368794326244,1.3936170212765955
+Atlassian Software Cloud,mean_baseline,2,2.08274231678487,1.5185185185185182
+Atlassian Software Cloud,mean_baseline,3,2.5713159968479116,1.1216931216931219
+Atlassian Software Cloud,mean_baseline,4,2.98919284025667,2.2328042328042326
+Atlassian Software Cloud,mean_baseline,5,2.1631205673758864,2.4074074074074074
+Atlassian Software Cloud,median_baseline,1,1.8958333333333333,2.0
+Atlassian Software Cloud,median_baseline,2,1.702127659574468,1.0
+Atlassian Software Cloud,median_baseline,3,2.74468085106383,2.0
+Atlassian Software Cloud,median_baseline,4,2.765957446808511,1.0
+Atlassian Software Cloud,median_baseline,5,2.021276595744681,1.0
+Atlassian Software Cloud,tfidf_ridge,1,1.7824042964780873,1.2610302771615092
+Atlassian Software Cloud,tfidf_ridge,2,1.632380449771635,1.561536539047919
+Atlassian Software Cloud,tfidf_ridge,3,2.6031884995151633,2.345724731927882
+Atlassian Software Cloud,tfidf_ridge,4,2.3106363157988983,1.5629906298368716
+Atlassian Software Cloud,tfidf_ridge,5,1.901400752088109,1.3817239135051569
+Atlassian Software Cloud,sbert_ridge,1,1.7032060623168945,1.3359336853027344
+Atlassian Software Cloud,sbert_ridge,2,1.6690436779184545,1.3793284893035889
+Atlassian Software Cloud,sbert_ridge,3,2.457422801788817,1.8991801738739014
+Atlassian Software Cloud,sbert_ridge,4,2.352369800527045,1.1858363151550293
+Atlassian Software Cloud,sbert_ridge,5,1.8196805563378842,1.3952515125274658
+Atlassian Software Cloud,sbert_cnn,1,1.7778104866768152,1.5252158878349367
+Atlassian Software Cloud,sbert_cnn,2,1.6264054781428237,1.2960395459165381
+Atlassian Software Cloud,sbert_cnn,3,2.677811834393496,1.688767413376298
+Atlassian Software Cloud,sbert_cnn,4,2.4343305709617296,1.3225890994869354
+Atlassian Software Cloud,sbert_cnn,5,1.9767747829047033,1.3901292256114686
+Command-Line Interface,mean_baseline,1,1.8521852877808553,1.3114035087719298
+Command-Line Interface,mean_baseline,2,2.0477839335180055,1.7149122807017543
+Command-Line Interface,mean_baseline,3,2.1712834718374885,1.4473684210526314
+Command-Line Interface,mean_baseline,4,1.7596952908587256,1.276315789473684
+Command-Line Interface,mean_baseline,5,1.9475992613111728,1.3991228070175437
+Command-Line Interface,median_baseline,1,1.719298245614035,2.0
+Command-Line Interface,median_baseline,2,1.8596491228070176,2.0
+Command-Line Interface,median_baseline,3,2.1228070175438596,2.0
+Command-Line Interface,median_baseline,4,1.543859649122807,2.0
+Command-Line Interface,median_baseline,5,1.7894736842105263,2.0
+Command-Line Interface,tfidf_ridge,1,1.4888535338245485,1.3218321192391715
+Command-Line Interface,tfidf_ridge,2,1.9440762862854284,1.876888750658802
+Command-Line Interface,tfidf_ridge,3,2.2796739982048444,1.7194028685720535
+Command-Line Interface,tfidf_ridge,4,1.5208408512953282,1.347750060106252
+Command-Line Interface,tfidf_ridge,5,1.6884207806976848,0.9963491117464409
+Command-Line Interface,sbert_ridge,1,1.4913884840513532,1.533207893371582
+Command-Line Interface,sbert_ridge,2,1.8668397685937714,1.4882481098175049
+Command-Line Interface,sbert_ridge,3,2.295604024017066,1.8808422088623047
+Command-Line Interface,sbert_ridge,4,1.3842232039100246,1.1625487804412842
+Command-Line Interface,sbert_ridge,5,1.6468094880120796,1.182945728302002
+Command-Line Interface,sbert_cnn,1,1.7015322814213152,1.8995970556396409
+Command-Line Interface,sbert_cnn,2,1.8168036979113196,1.4458125113356792
+Command-Line Interface,sbert_cnn,3,2.3036797008937175,1.7732536762549298
+Command-Line Interface,sbert_cnn,4,1.5435743841232685,1.8754599218496604
+Command-Line Interface,sbert_cnn,5,1.7914985282700995,1.9056324314866222
+DotNetNuke Platform,mean_baseline,1,1.1740870792673839,0.8402903811252269
+DotNetNuke Platform,mean_baseline,2,1.0647395600445393,0.8153055051421658
+DotNetNuke Platform,mean_baseline,3,0.9646434939438038,0.8009068923821037
+DotNetNuke Platform,mean_baseline,4,0.9938177607443691,0.7870012091898428
+DotNetNuke Platform,mean_baseline,5,1.1102202892101034,0.8365779927448607
+DotNetNuke Platform,median_baseline,1,1.083816425120773,1.0
+DotNetNuke Platform,median_baseline,2,0.9657004830917875,1.0
+DotNetNuke Platform,median_baseline,3,0.8571428571428571,1.0
+DotNetNuke Platform,median_baseline,4,0.8808716707021792,1.0
+DotNetNuke Platform,median_baseline,5,1.0314769975786926,1.0
+DotNetNuke Platform,tfidf_ridge,1,0.9936502797515054,0.5227307991274696
+DotNetNuke Platform,tfidf_ridge,2,0.8715856829047619,0.5492345928069652
+DotNetNuke Platform,tfidf_ridge,3,0.8374713078511921,0.5528721392927982
+DotNetNuke Platform,tfidf_ridge,4,0.817033832297541,0.5866856354518295
+DotNetNuke Platform,tfidf_ridge,5,0.9382488552731113,0.5559546363703589
+DotNetNuke Platform,sbert_ridge,1,1.0412516339389597,0.5791302919387817
+DotNetNuke Platform,sbert_ridge,2,0.9093364991427619,0.5871856212615967
+DotNetNuke Platform,sbert_ridge,3,0.8250787341854474,0.5354912281036377
+DotNetNuke Platform,sbert_ridge,4,0.868922000473983,0.5927064418792725
+DotNetNuke Platform,sbert_ridge,5,0.9927504706325023,0.5945659875869751
+DotNetNuke Platform,sbert_cnn,1,1.0538312742766938,0.7027824213242064
+DotNetNuke Platform,sbert_cnn,2,0.9503156271213412,0.5818277568129689
+DotNetNuke Platform,sbert_cnn,3,0.86917485655755,0.5188867512419282
+DotNetNuke Platform,sbert_cnn,4,0.8553848568854544,0.5356442765678211
+DotNetNuke Platform,sbert_cnn,5,0.9714333826333469,0.5772856840706471
+Hyperledger Blockchain Explorer,mean_baseline,1,1.383691983122363,0.8898734177215188
+Hyperledger Blockchain Explorer,mean_baseline,2,1.1212447257383964,0.9354430379746836
+Hyperledger Blockchain Explorer,mean_baseline,3,1.1045648767981768,0.06680672268907584
+Hyperledger Blockchain Explorer,mean_baseline,4,0.9494658880501352,0.9831932773109244
+Hyperledger Blockchain Explorer,mean_baseline,5,1.104721549636804,0.9247899159663864
+Hyperledger Blockchain Explorer,median_baseline,1,1.3616666666666666,1.0
+Hyperledger Blockchain Explorer,median_baseline,2,1.1083333333333334,1.0
+Hyperledger Blockchain Explorer,median_baseline,3,1.083050847457627,0.0
+Hyperledger Blockchain Explorer,median_baseline,4,0.9457627118644067,1.0
+Hyperledger Blockchain Explorer,median_baseline,5,1.083050847457627,1.0
+Hyperledger Blockchain Explorer,tfidf_ridge,1,1.37819435900793,0.7731054167861511
+Hyperledger Blockchain Explorer,tfidf_ridge,2,1.0722880662544056,0.6503921238177974
+Hyperledger Blockchain Explorer,tfidf_ridge,3,1.097742995763074,0.5031637846369521
+Hyperledger Blockchain Explorer,tfidf_ridge,4,0.9156858419473556,0.40978334633062286
+Hyperledger Blockchain Explorer,tfidf_ridge,5,1.0876390132858473,0.6221713537609554
+Hyperledger Blockchain Explorer,sbert_ridge,1,1.4519550851980842,0.9570002555847168
+Hyperledger Blockchain Explorer,sbert_ridge,2,1.0321295281251273,0.7676249742507935
+Hyperledger Blockchain Explorer,sbert_ridge,3,1.1131586345575624,0.5790998935699463
+Hyperledger Blockchain Explorer,sbert_ridge,4,0.8936638678534555,0.5039136409759521
+Hyperledger Blockchain Explorer,sbert_ridge,5,1.1345969543618672,0.6835272312164307
+Hyperledger Blockchain Explorer,sbert_cnn,1,1.371810768818425,0.8217430243200547
+Hyperledger Blockchain Explorer,sbert_cnn,2,1.0583765217683547,0.7721895944354058
+Hyperledger Blockchain Explorer,sbert_cnn,3,1.1291106861411195,0.6418955828165469
+Hyperledger Blockchain Explorer,sbert_cnn,4,0.9302439442955261,0.5232355034071516
+Hyperledger Blockchain Explorer,sbert_cnn,5,1.1324421096346833,0.74336070620364
+Hyperledger Fabric,mean_baseline,1,1.77205,1.5
+Hyperledger Fabric,mean_baseline,2,1.8682000000000003,1.71
+Hyperledger Fabric,mean_baseline,3,2.0139,1.7574999999999998
+Hyperledger Fabric,mean_baseline,4,2.1332000000000004,1.62
+Hyperledger Fabric,mean_baseline,5,1.6681,1.8050000000000002
+Hyperledger Fabric,median_baseline,1,1.68,1.0
+Hyperledger Fabric,median_baseline,2,1.57,1.0
+Hyperledger Fabric,median_baseline,3,1.62,1.0
+Hyperledger Fabric,median_baseline,4,1.91,1.0
+Hyperledger Fabric,median_baseline,5,1.33,1.0
+Hyperledger Fabric,tfidf_ridge,1,1.3979256767127557,0.8081345039463761
+Hyperledger Fabric,tfidf_ridge,2,1.4040651709830416,0.787213670465232
+Hyperledger Fabric,tfidf_ridge,3,1.4162099054542503,0.6803138438976651
+Hyperledger Fabric,tfidf_ridge,4,1.6151797976497644,0.7031276786156028
+Hyperledger Fabric,tfidf_ridge,5,1.1581458050129396,0.8519966269258725
+Hyperledger Fabric,sbert_ridge,1,1.4258723032474518,0.9396383762359619
+Hyperledger Fabric,sbert_ridge,2,1.409314523935318,0.7085954546928406
+Hyperledger Fabric,sbert_ridge,3,1.3638587093353272,0.6227285861968994
+Hyperledger Fabric,sbert_ridge,4,1.6550398290157318,0.67418372631073
+Hyperledger Fabric,sbert_ridge,5,1.0743266534805298,0.7395110130310059
+Hyperledger Fabric,sbert_cnn,1,1.4353201370865725,0.8352125109892081
+Hyperledger Fabric,sbert_cnn,2,1.444570761508614,0.7685583379065674
+Hyperledger Fabric,sbert_cnn,3,1.4444412745085151,0.6067692957957714
+Hyperledger Fabric,sbert_cnn,4,1.6347150835762787,0.5363170203639882
+Hyperledger Fabric,sbert_cnn,5,1.1033777782388723,0.6116447621739323
+Hyperledger Indy Node,mean_baseline,1,1.5330445124023104,1.490740740740741
+Hyperledger Indy Node,mean_baseline,2,1.6695748866649556,1.3464203233256349
+Hyperledger Indy Node,mean_baseline,3,1.5280557693952608,1.4757505773672057
+Hyperledger Indy Node,mean_baseline,4,1.5144341801385683,1.4711316397228638
+Hyperledger Indy Node,mean_baseline,5,1.550017107176461,1.4133949191685913
+Hyperledger Indy Node,median_baseline,1,1.3394495412844036,1.0
+Hyperledger Indy Node,median_baseline,2,1.5925925925925926,1.0
+Hyperledger Indy Node,median_baseline,3,1.3518518518518519,1.0
+Hyperledger Indy Node,median_baseline,4,1.25,1.0
+Hyperledger Indy Node,median_baseline,5,1.4351851851851851,1.0
+Hyperledger Indy Node,tfidf_ridge,1,1.198818293384007,0.9863648030925969
+Hyperledger Indy Node,tfidf_ridge,2,1.5147998024403904,1.0968466893450772
+Hyperledger Indy Node,tfidf_ridge,3,1.1984287600476125,1.090942936691548
+Hyperledger Indy Node,tfidf_ridge,4,1.122438169972293,0.8276357307584689
+Hyperledger Indy Node,tfidf_ridge,5,1.338759855882194,0.960497052042157
+Hyperledger Indy Node,sbert_ridge,1,1.3629961341892907,1.221276044845581
+Hyperledger Indy Node,sbert_ridge,2,1.554183433453242,1.0149766206741333
+Hyperledger Indy Node,sbert_ridge,3,1.3761370634591137,1.1259478330612183
+Hyperledger Indy Node,sbert_ridge,4,1.1929419923711706,0.9130951166152954
+Hyperledger Indy Node,sbert_ridge,5,1.4961289951094874,1.1236634254455566
+Hyperledger Indy Node,sbert_cnn,1,1.3803607130481996,1.309506925021176
+Hyperledger Indy Node,sbert_cnn,2,1.5757741129218246,1.1450705909122414
+Hyperledger Indy Node,sbert_cnn,3,1.3593437010165599,1.0664904766061944
+Hyperledger Indy Node,sbert_cnn,4,1.2500340904447487,1.1332253550263272
+Hyperledger Indy Node,sbert_cnn,5,1.510110546265753,1.0629813935914483
+Hyperledger Indy SDK,mean_baseline,1,1.9201210992081972,1.0619469026548671
+Hyperledger Indy SDK,mean_baseline,2,1.9581746078259001,1.1434878587196469
+Hyperledger Indy SDK,mean_baseline,3,1.8304909257848367,1.0044150110375276
+Hyperledger Indy SDK,mean_baseline,4,1.8925745765691848,1.1125827814569536
+Hyperledger Indy SDK,mean_baseline,5,1.9080466506476004,1.0397350993377485
+Hyperledger Indy SDK,median_baseline,1,1.6403508771929824,1.0
+Hyperledger Indy SDK,median_baseline,2,1.8141592920353982,1.0
+Hyperledger Indy SDK,median_baseline,3,1.5221238938053097,1.0
+Hyperledger Indy SDK,median_baseline,4,1.7433628318584071,1.0
+Hyperledger Indy SDK,median_baseline,5,1.6106194690265487,1.0
+Hyperledger Indy SDK,tfidf_ridge,1,1.425145048494396,1.0974307806252257
+Hyperledger Indy SDK,tfidf_ridge,2,1.4794036352578628,1.0302819994191994
+Hyperledger Indy SDK,tfidf_ridge,3,1.259116533689839,1.0991270536230866
+Hyperledger Indy SDK,tfidf_ridge,4,1.5809320979076362,0.9815972575181968
+Hyperledger Indy SDK,tfidf_ridge,5,1.6097154517155927,1.1984998599884413
+Hyperledger Indy SDK,sbert_ridge,1,1.5790538578702693,1.1537543535232544
+Hyperledger Indy SDK,sbert_ridge,2,1.6178773367299444,1.0718655586242676
+Hyperledger Indy SDK,sbert_ridge,3,1.2875234131264475,1.0445611476898193
+Hyperledger Indy SDK,sbert_ridge,4,1.5840554058024314,1.1202688217163086
+Hyperledger Indy SDK,sbert_ridge,5,1.6221537189146058,1.135788917541504
+Hyperledger Indy SDK,sbert_cnn,1,1.5373144960693828,1.0991639423903212
+Hyperledger Indy SDK,sbert_cnn,2,1.5667163591290203,0.9298123090200279
+Hyperledger Indy SDK,sbert_cnn,3,1.3484399793310733,1.070611100735945
+Hyperledger Indy SDK,sbert_cnn,4,1.5930467309697796,1.033231224005676
+Hyperledger Indy SDK,sbert_cnn,5,1.6968632400575319,1.2260216958810113
+Hyperledger Sawtooth,mean_baseline,1,1.0291016076957833,0.6173044925124791
+Hyperledger Sawtooth,mean_baseline,2,0.9920331456402683,0.6422628951747087
+Hyperledger Sawtooth,mean_baseline,3,1.1152380952380954,0.6428571428571428
+Hyperledger Sawtooth,mean_baseline,4,1.0576744186046514,0.5797342192691031
+Hyperledger Sawtooth,mean_baseline,5,1.0674418604651164,0.6029900332225915
+Hyperledger Sawtooth,median_baseline,1,0.9403973509933775,1.0
+Hyperledger Sawtooth,median_baseline,2,0.9470198675496688,1.0
+Hyperledger Sawtooth,median_baseline,3,1.02,1.0
+Hyperledger Sawtooth,median_baseline,4,0.94,1.0
+Hyperledger Sawtooth,median_baseline,5,0.9933333333333333,1.0
+Hyperledger Sawtooth,tfidf_ridge,1,0.8966862752283205,0.7642513735335623
+Hyperledger Sawtooth,tfidf_ridge,2,0.9043902063915106,0.7796452817329365
+Hyperledger Sawtooth,tfidf_ridge,3,0.9503762398711566,0.7061287286698441
+Hyperledger Sawtooth,tfidf_ridge,4,0.8680169361499528,0.7652173581549121
+Hyperledger Sawtooth,tfidf_ridge,5,0.942448988229403,0.8278182877583935
+Hyperledger Sawtooth,sbert_ridge,1,0.9056769585767329,0.7491121292114258
+Hyperledger Sawtooth,sbert_ridge,2,0.9008790783534776,0.6922836303710938
+Hyperledger Sawtooth,sbert_ridge,3,0.9812680347760518,0.7047299146652222
+Hyperledger Sawtooth,sbert_ridge,4,0.8497082861264547,0.6682115793228149
+Hyperledger Sawtooth,sbert_ridge,5,0.9464050475756327,0.6568585634231567
+Hyperledger Sawtooth,sbert_cnn,1,0.9197492972512111,0.7416352287706351
+Hyperledger Sawtooth,sbert_cnn,2,0.9060181528183464,0.6657163927304381
+Hyperledger Sawtooth,sbert_cnn,3,1.0031606410884661,0.6772821997968772
+Hyperledger Sawtooth,sbert_cnn,4,0.9037234183639087,0.9812455548450081
+Hyperledger Sawtooth,sbert_cnn,5,0.9507987950795809,0.6390151357516362
+Lsstcorp Data management,mean_baseline,1,6.868861692283893,5.050591827410763
+Lsstcorp Data management,mean_baseline,2,6.761013422374333,5.075257863105176
+Lsstcorp Data management,mean_baseline,3,6.987938186437992,5.027912069878369
+Lsstcorp Data management,mean_baseline,4,6.905153394886929,5.039167230860959
+Lsstcorp Data management,mean_baseline,5,7.11341901817159,5.01275055063593
+Lsstcorp Data management,median_baseline,1,5.628419926868044,2.0
+Lsstcorp Data management,median_baseline,2,5.493750312559618,2.0
+Lsstcorp Data management,median_baseline,3,5.721771701112877,2.0
+Lsstcorp Data management,median_baseline,4,5.646514044515103,2.0
+Lsstcorp Data management,median_baseline,5,5.822038167938931,2.0
+Lsstcorp Data management,tfidf_ridge,1,4.318914731492086,1.6925897065083135
+Lsstcorp Data management,tfidf_ridge,2,4.274959966641945,1.6446659345241357
+Lsstcorp Data management,tfidf_ridge,3,4.324207095769206,1.6787638016136714
+Lsstcorp Data management,tfidf_ridge,4,4.272616235346527,1.6235554180438783
+Lsstcorp Data management,tfidf_ridge,5,4.444546169770677,1.647041731090067
+Lsstcorp Data management,sbert_ridge,1,4.60798718676406,1.8817710876464844
+Lsstcorp Data management,sbert_ridge,2,4.563716009612379,1.7616958618164062
+Lsstcorp Data management,sbert_ridge,3,4.7298713273615824,1.8478825092315674
+Lsstcorp Data management,sbert_ridge,4,4.740862805304278,1.812497615814209
+Lsstcorp Data management,sbert_ridge,5,4.76772035153839,1.7775156497955322
+Lsstcorp Data management,sbert_cnn,1,4.552852981019716,1.5549714238246786
+Lsstcorp Data management,sbert_cnn,2,4.55416956251061,1.7205505906016991
+Lsstcorp Data management,sbert_cnn,3,4.78416180793304,1.631081204229091
+Lsstcorp Data management,sbert_cnn,4,4.691115063000448,1.606280595272235
+Lsstcorp Data management,sbert_cnn,5,4.7671217929229295,1.5919097586719078
+Lyrasis Dura Cloud,mean_baseline,1,1.1067573696145123,0.980952380952381
+Lyrasis Dura Cloud,mean_baseline,2,1.332471655328798,0.9952380952380953
+Lyrasis Dura Cloud,mean_baseline,3,0.9990702947845808,1.0880952380952382
+Lyrasis Dura Cloud,mean_baseline,4,1.080204081632653,1.0071428571428571
+Lyrasis Dura Cloud,mean_baseline,5,1.0847619047619048,1.0619047619047617
+Lyrasis Dura Cloud,median_baseline,1,1.2095238095238094,1.0
+Lyrasis Dura Cloud,median_baseline,2,1.1523809523809523,0.0
+Lyrasis Dura Cloud,median_baseline,3,0.780952380952381,0.0
+Lyrasis Dura Cloud,median_baseline,4,1.1047619047619048,1.0
+Lyrasis Dura Cloud,median_baseline,5,0.8857142857142857,0.0
+Lyrasis Dura Cloud,tfidf_ridge,1,1.1253358036600107,0.7407867003206765
+Lyrasis Dura Cloud,tfidf_ridge,2,1.1349332767406868,0.6476496703210091
+Lyrasis Dura Cloud,tfidf_ridge,3,0.7621882194164185,0.5784052123773193
+Lyrasis Dura Cloud,tfidf_ridge,4,0.979436009049027,0.5995166876484015
+Lyrasis Dura Cloud,tfidf_ridge,5,0.8388849424981321,0.554109849656605
+Lyrasis Dura Cloud,sbert_ridge,1,1.0906575430007208,0.6409928798675537
+Lyrasis Dura Cloud,sbert_ridge,2,1.0850821585882278,0.6045126914978027
+Lyrasis Dura Cloud,sbert_ridge,3,0.7691508270445324,0.5307211875915527
+Lyrasis Dura Cloud,sbert_ridge,4,0.9726382005782355,0.6032958030700684
+Lyrasis Dura Cloud,sbert_ridge,5,0.7539815289633615,0.4237861633300781
+Lyrasis Dura Cloud,sbert_cnn,1,1.096984761881642,0.6507303352135612
+Lyrasis Dura Cloud,sbert_cnn,2,1.170738575958203,0.5225066089511363
+Lyrasis Dura Cloud,sbert_cnn,3,0.7316934585556002,0.4993702776550235
+Lyrasis Dura Cloud,sbert_cnn,4,1.0094854700318916,0.5787300256523482
+Lyrasis Dura Cloud,sbert_cnn,5,0.8500783007289513,0.4543058136096434
+MongoDB Compass,mean_baseline,1,1.247877358490566,1.3396226415094339
+MongoDB Compass,mean_baseline,2,1.2573113207547169,1.3301886792452828
+MongoDB Compass,mean_baseline,3,1.622877358490566,1.6226415094339623
+MongoDB Compass,mean_baseline,4,1.293242331653506,1.3699059561128526
+MongoDB Compass,mean_baseline,5,1.2707035435101783,1.304075235109718
+MongoDB Compass,median_baseline,1,1.1375,1.0
+MongoDB Compass,median_baseline,2,1.15,1.0
+MongoDB Compass,median_baseline,3,1.4625,2.0
+MongoDB Compass,median_baseline,4,1.1012658227848102,1.0
+MongoDB Compass,median_baseline,5,1.1898734177215189,1.0
+MongoDB Compass,tfidf_ridge,1,1.144913671428134,1.0292602896281158
+MongoDB Compass,tfidf_ridge,2,1.1630644826249872,0.9655109470216499
+MongoDB Compass,tfidf_ridge,3,1.4696043182871175,1.739112755305503
+MongoDB Compass,tfidf_ridge,4,1.128631440753691,0.9567017869062582
+MongoDB Compass,tfidf_ridge,5,1.211017826452574,1.0262308366748667
+MongoDB Compass,sbert_ridge,1,1.1463069170713425,1.0096663236618042
+MongoDB Compass,sbert_ridge,2,1.150174331665039,0.9868886470794678
+MongoDB Compass,sbert_ridge,3,1.4811163991689682,1.8583335876464844
+MongoDB Compass,sbert_ridge,4,1.1332173769987082,1.002267599105835
+MongoDB Compass,sbert_ridge,5,1.2063459203213076,1.007554054260254
+MongoDB Compass,sbert_cnn,1,1.307504182858467,0.8931468404264182
+MongoDB Compass,sbert_cnn,2,1.2031827834930031,1.0511137723818988
+MongoDB Compass,sbert_cnn,3,1.3658490279695794,0.9748254976743838
+MongoDB Compass,sbert_cnn,4,1.3078099638819225,1.0416756637565752
+MongoDB Compass,sbert_cnn,5,1.2573836287611266,1.0401279198045077
+MongoDB Core Server,mean_baseline,1,1.6185050862450239,1.6242105263157893
+MongoDB Core Server,mean_baseline,2,1.5125696594427243,0.6294736842105264
+MongoDB Core Server,mean_baseline,3,1.4799115435647943,0.6694736842105264
+MongoDB Core Server,mean_baseline,4,1.437753206545776,0.6515789473684213
+MongoDB Core Server,mean_baseline,5,1.332858567155676,0.6743697478991595
+MongoDB Core Server,median_baseline,1,1.4663865546218486,1.0
+MongoDB Core Server,median_baseline,2,1.3697478991596639,1.0
+MongoDB Core Server,median_baseline,3,1.2605042016806722,1.0
+MongoDB Core Server,median_baseline,4,1.2899159663865547,1.0
+MongoDB Core Server,median_baseline,5,1.1271186440677967,1.0
+MongoDB Core Server,tfidf_ridge,1,1.3389092714942719,0.8205232409323728
+MongoDB Core Server,tfidf_ridge,2,1.1940563377699158,0.7206286753677351
+MongoDB Core Server,tfidf_ridge,3,1.1681741588757901,0.6221408734276128
+MongoDB Core Server,tfidf_ridge,4,1.149480161260843,0.7086618716328403
+MongoDB Core Server,tfidf_ridge,5,1.0310145224156688,0.712594991333789
+MongoDB Core Server,sbert_ridge,1,1.2954247143088269,0.7811124324798584
+MongoDB Core Server,sbert_ridge,2,1.2685767938109005,0.7170252799987793
+MongoDB Core Server,sbert_ridge,3,1.2296327948570251,0.712279200553894
+MongoDB Core Server,sbert_ridge,4,1.1936384199046288,0.7790572643280029
+MongoDB Core Server,sbert_ridge,5,1.0009958905688787,0.6601069569587708
+MongoDB Core Server,sbert_cnn,1,1.3631175588622706,0.8721417403907437
+MongoDB Core Server,sbert_cnn,2,1.2787251243464557,0.7428164145072194
+MongoDB Core Server,sbert_cnn,3,1.2334786221083343,0.8142441511609031
+MongoDB Core Server,sbert_cnn,4,1.1968120440155123,0.7964365403544724
+MongoDB Core Server,sbert_cnn,5,1.0758209226087314,0.7158647002957801
+Moodle,mean_baseline,1,12.138771080285833,9.237610256410257
+Moodle,mean_baseline,2,12.115773266078183,9.133507692307692
+Moodle,mean_baseline,3,11.04939785624212,8.181025641025641
+Moodle,mean_baseline,4,13.413170071458598,8.992994871794872
+Moodle,mean_baseline,5,11.419306019361802,9.405399590163935
+Moodle,median_baseline,1,10.131147540983607,3.0
+Moodle,median_baseline,2,10.223360655737705,3.0
+Moodle,median_baseline,3,8.394795081967214,3.0
+Moodle,median_baseline,4,11.219262295081966,3.0
+Moodle,median_baseline,5,9.353909465020577,3.0
+Moodle,tfidf_ridge,1,8.882471199094592,3.802527445567567
+Moodle,tfidf_ridge,2,9.215517208319506,3.361707023269478
+Moodle,tfidf_ridge,3,7.636838399066069,3.427357076656916
+Moodle,tfidf_ridge,4,10.376023380553061,3.979726678559583
+Moodle,tfidf_ridge,5,7.734397795707413,3.353496970576895
+Moodle,sbert_ridge,1,8.720035616980224,3.5205821990966797
+Moodle,sbert_ridge,2,9.279328485981363,3.3049192428588867
+Moodle,sbert_ridge,3,7.4492263676006285,3.034945249557495
+Moodle,sbert_ridge,4,10.268134699004595,3.4120426177978516
+Moodle,sbert_ridge,5,8.6097108064365,3.9782609939575195
+Moodle,sbert_cnn,1,8.549813474679247,3.994228273320766
+Moodle,sbert_cnn,2,9.415143401530191,3.0061060012117804
+Moodle,sbert_cnn,3,7.593668124620941,2.9974804925979375
+Moodle,sbert_cnn,4,10.373512280387866,2.9181227051412244
+Moodle,sbert_cnn,5,8.840198177682778,4.342655626287007
+Mule,mean_baseline,1,3.0505457049874907,2.99703515459551
+Mule,mean_baseline,2,2.9897122659459874,2.9047013977128335
+Mule,mean_baseline,3,2.948202471332826,2.947502116850127
+Mule,mean_baseline,4,2.973931887656252,2.9415749364944963
+Mule,mean_baseline,5,2.986891315891445,2.939034716342083
+Mule,median_baseline,1,2.978003384094755,2.0
+Mule,median_baseline,2,2.761421319796954,2.0
+Mule,median_baseline,3,2.7796610169491527,2.0
+Mule,median_baseline,4,2.840677966101695,2.0
+Mule,median_baseline,5,2.857627118644068,2.0
+Mule,tfidf_ridge,1,2.6129950744815593,1.8161594764174454
+Mule,tfidf_ridge,2,2.470966117774507,1.838837830712464
+Mule,tfidf_ridge,3,2.4886899687308683,1.742904964808943
+Mule,tfidf_ridge,4,2.5264628562638345,1.857616540611218
+Mule,tfidf_ridge,5,2.458120777952955,1.7986783120930512
+Mule,sbert_ridge,1,2.7374285729806838,1.8150172233581543
+Mule,sbert_ridge,2,2.4794083823609068,1.7849881649017334
+Mule,sbert_ridge,3,2.522412132610709,1.7343937158584595
+Mule,sbert_ridge,4,2.5923076431630023,1.8674501180648804
+Mule,sbert_ridge,5,2.4232438469337203,1.7212889194488525
+Mule,sbert_cnn,1,2.7936952352233906,1.9129275454293175
+Mule,sbert_cnn,2,2.518818649149228,1.8446419819774977
+Mule,sbert_cnn,3,2.665605700726107,1.8567877671838753
+Mule,sbert_cnn,4,2.5502206098937497,1.637696223495823
+Mule,sbert_cnn,5,2.4713640602077596,1.6734628734754609
+Mule APIkit,mean_baseline,1,2.2575084175084177,1.538720538720539
+Mule APIkit,mean_baseline,2,1.8496969696969692,1.6363636363636362
+Mule APIkit,mean_baseline,3,2.283330310175948,1.5033557046979866
+Mule APIkit,mean_baseline,4,2.180029022310902,1.5134228187919465
+Mule APIkit,mean_baseline,5,2.0854344277163066,1.610738255033557
+Mule APIkit,median_baseline,1,2.1066666666666665,2.0
+Mule APIkit,median_baseline,2,1.5866666666666667,1.0
+Mule APIkit,median_baseline,3,2.2162162162162162,2.0
+Mule APIkit,median_baseline,4,2.0135135135135136,2.0
+Mule APIkit,median_baseline,5,1.837837837837838,2.0
+Mule APIkit,tfidf_ridge,1,1.7600633048990213,1.290979956389839
+Mule APIkit,tfidf_ridge,2,1.3574231655867766,0.8026594778633944
+Mule APIkit,tfidf_ridge,3,1.7877904947441225,1.378180198266246
+Mule APIkit,tfidf_ridge,4,1.7708033237903469,0.9714517409086982
+Mule APIkit,tfidf_ridge,5,1.736818360545601,1.138714532303844
+Mule APIkit,sbert_ridge,1,1.7075951131184897,1.0110836029052734
+Mule APIkit,sbert_ridge,2,1.341727736790975,0.7791554927825928
+Mule APIkit,sbert_ridge,3,1.8118163862743892,1.1748381853103638
+Mule APIkit,sbert_ridge,4,1.8880015998273283,1.0750234127044678
+Mule APIkit,sbert_ridge,5,1.6881598926879264,1.2354553937911987
+Mule APIkit,sbert_cnn,1,1.7169574365317302,0.9631761374565717
+Mule APIkit,sbert_cnn,2,1.3626827428344654,0.7537031669771879
+Mule APIkit,sbert_cnn,3,1.7021063543016215,1.1654768335725973
+Mule APIkit,sbert_cnn,4,1.8203713732162874,1.0197637921669294
+Mule APIkit,sbert_cnn,5,1.6756638741494485,1.171474904157134
+Sonatype Nexus,mean_baseline,1,1.1146529138669397,0.78846487424111
+Sonatype Nexus,mean_baseline,2,1.2575165732840763,0.7841283607979184
+Sonatype Nexus,mean_baseline,3,0.9963544675524744,0.8397746967071056
+Sonatype Nexus,mean_baseline,4,1.201294410745234,0.8220103986135181
+Sonatype Nexus,mean_baseline,5,1.0277946273830156,0.8401213171577122
+Sonatype Nexus,median_baseline,1,1.0519031141868511,0.5
+Sonatype Nexus,median_baseline,2,1.1245674740484428,0.5
+Sonatype Nexus,median_baseline,3,0.8680555555555556,0.5
+Sonatype Nexus,median_baseline,4,0.984375,0.5
+Sonatype Nexus,median_baseline,5,0.911111111111111,0.5
+Sonatype Nexus,tfidf_ridge,1,0.9926886903301891,0.6224257891368468
+Sonatype Nexus,tfidf_ridge,2,1.086337460196671,0.6229892644340982
+Sonatype Nexus,tfidf_ridge,3,0.8306088711063622,0.5818922545936513
+Sonatype Nexus,tfidf_ridge,4,0.9919991691688045,0.5871890457250084
+Sonatype Nexus,tfidf_ridge,5,0.843310314704956,0.5815538321523515
+Sonatype Nexus,sbert_ridge,1,0.9661323760207549,0.6135234832763672
+Sonatype Nexus,sbert_ridge,2,1.080282992557671,0.6272579431533813
+Sonatype Nexus,sbert_ridge,3,0.8461393469737636,0.6358469724655151
+Sonatype Nexus,sbert_ridge,4,0.9746965258899662,0.5871503949165344
+Sonatype Nexus,sbert_ridge,5,0.8162709649238322,0.5564462542533875
+Sonatype Nexus,sbert_cnn,1,0.999558986648351,0.6493148146462593
+Sonatype Nexus,sbert_cnn,2,1.103206847634916,0.6153571204092494
+Sonatype Nexus,sbert_cnn,3,0.8463589243694045,0.5681366549306327
+Sonatype Nexus,sbert_cnn,4,0.9504972641770075,0.5059357395060369
+Sonatype Nexus,sbert_cnn,5,0.8593156855466302,0.545622107572823
+Spring DataCass,mean_baseline,1,3.13716814067128,3.2710177010735295
+Spring DataCass,mean_baseline,2,4.6273233994498275,3.4044117647058822
+Spring DataCass,mean_baseline,3,2.7330051744247403,3.3077824069558828
+Spring DataCass,mean_baseline,4,5.319697920698097,2.9348646518676467
+Spring DataCass,mean_baseline,5,2.4332646899956747,2.773099945985294
+Spring DataCass,median_baseline,1,2.323529411764706,2.0
+Spring DataCass,median_baseline,2,4.033576254529412,2.0
+Spring DataCass,median_baseline,3,2.235294117647059,2.0
+Spring DataCass,median_baseline,4,5.264705882352941,2.0
+Spring DataCass,median_baseline,5,1.911764705882353,2.0
+Spring DataCass,tfidf_ridge,1,2.0475386862506735,1.2925448257371777
+Spring DataCass,tfidf_ridge,2,3.927956389961767,1.828885031744552
+Spring DataCass,tfidf_ridge,3,2.1206132011587555,1.3505432700539541
+Spring DataCass,tfidf_ridge,4,5.155754280708355,1.8750441462219805
+Spring DataCass,tfidf_ridge,5,1.6966218369324293,1.1439755525446795
+Spring DataCass,sbert_ridge,1,2.1706331477445713,1.3394426107406616
+Spring DataCass,sbert_ridge,2,3.9199145796372106,1.7482680082321167
+Spring DataCass,sbert_ridge,3,2.1652432504822228,1.367518424987793
+Spring DataCass,sbert_ridge,4,5.259770267149982,2.0631520748138428
+Spring DataCass,sbert_ridge,5,1.852521416018991,1.3045858144760132
+Spring DataCass,sbert_cnn,1,2.3297220555476152,1.579810219943001
+Spring DataCass,sbert_cnn,2,3.831525177069389,1.6300827259841533
+Spring DataCass,sbert_cnn,3,2.266353361948834,1.4295457294458274
+Spring DataCass,sbert_cnn,4,5.346676944969958,1.6981974952179846
+Spring DataCass,sbert_cnn,5,1.9132334483047828,1.8295895079663684
+Spring XD,mean_baseline,1,2.0815043264368396,1.768639575971732
+Spring XD,mean_baseline,2,2.2769331618574333,1.6926678445229686
+Spring XD,mean_baseline,3,2.2324233040742176,1.7350706713780921
+Spring XD,mean_baseline,4,2.2274744346914055,1.7036219081272086
+Spring XD,mean_baseline,5,2.33445916417985,1.6886925795053007
+Spring XD,median_baseline,1,1.853356890459364,2.0
+Spring XD,median_baseline,2,2.1007067137809186,2.0
+Spring XD,median_baseline,3,2.019434628975265,2.0
+Spring XD,median_baseline,4,2.0385159010600704,2.0
+Spring XD,median_baseline,5,2.1519434628975267,2.0
+Spring XD,tfidf_ridge,1,1.622264854152685,1.2412424037940206
+Spring XD,tfidf_ridge,2,1.8700530615129078,1.2840690711346783
+Spring XD,tfidf_ridge,3,1.7352931462179184,1.1343489741683848
+Spring XD,tfidf_ridge,4,1.8265451391436418,1.1811379633226873
+Spring XD,tfidf_ridge,5,1.8720314852873798,1.1787891529203633
+Spring XD,sbert_ridge,1,1.6776657250871085,1.1824752688407898
+Spring XD,sbert_ridge,2,1.87439352716237,1.2036564350128174
+Spring XD,sbert_ridge,3,1.7572262272396695,1.0790436267852783
+Spring XD,sbert_ridge,4,1.7812264286587178,1.1874591708183289
+Spring XD,sbert_ridge,5,1.8632443503019245,1.1783361434936523
+Spring XD,sbert_cnn,1,1.670564473982178,1.183680784419146
+Spring XD,sbert_cnn,2,1.9487979459505849,1.2653194806995118
+Spring XD,sbert_cnn,3,1.819251527889204,1.1662377813077895
+Spring XD,sbert_cnn,4,1.8566666870810908,1.1355470111074633
+Spring XD,sbert_cnn,5,1.9130103725770384,1.183293729947335
+The MongoDB Engineering,mean_baseline,1,0.790484427090469,0.8683641975308642
+The MongoDB Engineering,mean_baseline,2,0.7279989029449072,0.873341561246529
+The MongoDB Engineering,mean_baseline,3,0.7694664426845852,0.886609071274298
+The MongoDB Engineering,mean_baseline,4,0.8283244007146096,0.8423326133909288
+The MongoDB Engineering,mean_baseline,5,0.7813481588139616,0.867170626349892
+The MongoDB Engineering,median_baseline,1,0.7792848335388409,1.0
+The MongoDB Engineering,median_baseline,2,0.7111111111111111,1.0
+The MongoDB Engineering,median_baseline,3,0.7666666666666667,1.0
+The MongoDB Engineering,median_baseline,4,0.8018518518518518,1.0
+The MongoDB Engineering,median_baseline,5,0.7679012345679013,1.0
+The MongoDB Engineering,tfidf_ridge,1,0.7239539313626265,0.5272477841235284
+The MongoDB Engineering,tfidf_ridge,2,0.6954561249657085,0.4982301262169193
+The MongoDB Engineering,tfidf_ridge,3,0.7158196778744385,0.5316813112962483
+The MongoDB Engineering,tfidf_ridge,4,0.7799638447740757,0.5161569681445941
+The MongoDB Engineering,tfidf_ridge,5,0.7357848722105176,0.5205804394198636
+The MongoDB Engineering,sbert_ridge,1,0.7565905362845349,0.5332980155944824
+The MongoDB Engineering,sbert_ridge,2,0.6954884334846779,0.5035081505775452
+The MongoDB Engineering,sbert_ridge,3,0.7076864425782804,0.5103334784507751
+The MongoDB Engineering,sbert_ridge,4,0.779392013873583,0.5103512406349182
+The MongoDB Engineering,sbert_ridge,5,0.7445822434660829,0.5291135907173157
+The MongoDB Engineering,sbert_cnn,1,0.7593727052814415,0.5104773640490701
+The MongoDB Engineering,sbert_cnn,2,0.7128344588056512,0.5001516857175866
+The MongoDB Engineering,sbert_cnn,3,0.7197051484831387,0.487019712510804
+The MongoDB Engineering,sbert_cnn,4,0.8034792528055436,0.5079983831969156
+The MongoDB Engineering,sbert_cnn,5,0.7508959264392975,0.4924771691563926
+The Mongo C++ driver,mean_baseline,1,0.5869281045751634,0.41481481481481475
+The Mongo C++ driver,mean_baseline,2,0.7884531590413942,0.36296296296296293
+The Mongo C++ driver,mean_baseline,3,0.6656862745098039,0.3666666666666667
+The Mongo C++ driver,mean_baseline,4,0.5506535947712418,0.38888888888888884
+The Mongo C++ driver,mean_baseline,5,0.6134135472370766,0.3602941176470589
+The Mongo C++ driver,median_baseline,1,0.29411764705882354,0.0
+The Mongo C++ driver,median_baseline,2,0.6176470588235294,0.0
+The Mongo C++ driver,median_baseline,3,0.5147058823529411,0.0
+The Mongo C++ driver,median_baseline,4,0.36764705882352944,0.0
+The Mongo C++ driver,median_baseline,5,0.5151515151515151,0.0
+The Mongo C++ driver,tfidf_ridge,1,0.4640040593820589,0.2854643415717304
+The Mongo C++ driver,tfidf_ridge,2,0.7116605759230861,0.392422807843125
+The Mongo C++ driver,tfidf_ridge,3,0.598433038425829,0.32506411344722874
+The Mongo C++ driver,tfidf_ridge,4,0.4579294828789888,0.3044957690290918
+The Mongo C++ driver,tfidf_ridge,5,0.5534218673282163,0.4027331567657748
+The Mongo C++ driver,sbert_ridge,1,0.49900277747827415,0.29980504512786865
+The Mongo C++ driver,sbert_ridge,2,0.6760954173172221,0.3592565655708313
+The Mongo C++ driver,sbert_ridge,3,0.5991266983396867,0.41735735535621643
+The Mongo C++ driver,sbert_ridge,4,0.46979734476874857,0.30679386854171753
+The Mongo C++ driver,sbert_ridge,5,0.5615379828395266,0.44638657569885254
+The Mongo C++ driver,sbert_cnn,1,0.4053510779758833,0.15929430507663012
+The Mongo C++ driver,sbert_cnn,2,0.674871802207587,0.2743728081618588
+The Mongo C++ driver,sbert_cnn,3,0.5247730294048731,0.20037776008742092
+The Mongo C++ driver,sbert_cnn,4,0.39921467303953206,0.14283737451948275
+The Mongo C++ driver,sbert_cnn,5,0.534686709799627,0.4306486176199402
+The Mongo Java driver,mean_baseline,1,0.19078947368421054,0.125
+The Mongo Java driver,mean_baseline,2,0.15720221606648196,0.13815789473684204
+The Mongo Java driver,mean_baseline,3,0.4383656509695293,0.046052631578947345
+The Mongo Java driver,mean_baseline,4,0.14473684210526302,0.14473684210526305
+The Mongo Java driver,mean_baseline,5,0.19078947368421054,0.125
+The Mongo Java driver,median_baseline,1,0.07894736842105263,0.0
+The Mongo Java driver,median_baseline,2,0.02631578947368421,0.0
+The Mongo Java driver,median_baseline,3,0.39473684210526316,0.0
+The Mongo Java driver,median_baseline,4,0.0,0.0
+The Mongo Java driver,median_baseline,5,0.07894736842105263,0.0
+The Mongo Java driver,tfidf_ridge,1,0.11776205762850629,0.03785891529685681
+The Mongo Java driver,tfidf_ridge,2,0.08192903725138398,0.061344472086701685
+The Mongo Java driver,tfidf_ridge,3,0.4193205143729729,0.021482578085577964
+The Mongo Java driver,tfidf_ridge,4,0.07069979993929841,0.06268941277382245
+The Mongo Java driver,tfidf_ridge,5,0.10703155221846226,0.04137330902779246
+The Mongo Java driver,sbert_ridge,1,0.11727985582853619,0.04559648036956787
+The Mongo Java driver,sbert_ridge,2,0.07527268246600502,0.05282402038574219
+The Mongo Java driver,sbert_ridge,3,0.4268874933845119,0.032398521900177
+The Mongo Java driver,sbert_ridge,4,0.061860931547064534,0.05894029140472412
+The Mongo Java driver,sbert_ridge,5,0.12042412004972759,0.04871082305908203
+The Mongo Java driver,sbert_cnn,1,0.09292272778648158,0.015619519290773543
+The Mongo Java driver,sbert_cnn,2,0.0504421112415966,0.025476725913421983
+The Mongo Java driver,sbert_cnn,3,0.3986096284836043,0.0032577237457488417
+The Mongo Java driver,sbert_cnn,4,0.00624759954734392,0.0057420199797650895
+The Mongo Java driver,sbert_cnn,5,0.08883282075308402,0.011048446724035044
+The Titanium SDK,mean_baseline,1,3.24459025905321,2.784904323175053
+The Titanium SDK,mean_baseline,2,3.2802896304431184,2.824060949681077
+The Titanium SDK,mean_baseline,3,3.4002309855987853,2.6846208362863218
+The Titanium SDK,mean_baseline,4,3.2816703220506325,2.8081827842720513
+The Titanium SDK,mean_baseline,5,3.398454187110438,2.7368048175699613
+The Titanium SDK,median_baseline,1,2.9043909348441925,2.0
+The Titanium SDK,median_baseline,2,2.8881019830028327,2.0
+The Titanium SDK,median_baseline,3,3.126770538243626,2.0
+The Titanium SDK,median_baseline,4,2.9205673758865247,2.0
+The Titanium SDK,median_baseline,5,3.094326241134752,2.0
+The Titanium SDK,tfidf_ridge,1,2.7272150658587617,1.6950052413486043
+The Titanium SDK,tfidf_ridge,2,2.679465869765301,1.8175705719070911
+The Titanium SDK,tfidf_ridge,3,2.917600470781937,1.7064824927262823
+The Titanium SDK,tfidf_ridge,4,2.6635499982698634,1.7596748992750904
+The Titanium SDK,tfidf_ridge,5,2.8912633354087047,1.8210983673327714
+The Titanium SDK,sbert_ridge,1,2.8407752594934306,1.8126015663146973
+The Titanium SDK,sbert_ridge,2,2.7058427614125584,1.8425250053405762
+The Titanium SDK,sbert_ridge,3,2.9298000033448846,1.8034892082214355
+The Titanium SDK,sbert_ridge,4,2.7156265996026656,1.818371295928955
+The Titanium SDK,sbert_ridge,5,2.926487364160254,1.8064069747924805
+The Titanium SDK,sbert_cnn,1,2.8538649121295183,1.7739631330303869
+The Titanium SDK,sbert_cnn,2,2.785841688337064,1.7010452658038393
+The Titanium SDK,sbert_cnn,3,3.0246898959450252,1.7882172634015387
+The Titanium SDK,sbert_cnn,4,2.7491622821936286,1.812930877714745
+The Titanium SDK,sbert_cnn,5,2.965202805838976,1.6480221814830358
+Titanium Mobile Platform,mean_baseline,1,3.147251766635314,3.4993849938499384
+Titanium Mobile Platform,mean_baseline,2,3.5005788293177056,3.4095940959409594
+Titanium Mobile Platform,mean_baseline,3,3.530585444378548,3.4606879606879604
+Titanium Mobile Platform,mean_baseline,4,3.223938223938224,3.4324324324324325
+Titanium Mobile Platform,mean_baseline,5,3.0556214521731757,2.5221130221130217
+Titanium Mobile Platform,median_baseline,1,2.8529411764705883,2.0
+Titanium Mobile Platform,median_baseline,2,3.1862745098039214,2.0
+Titanium Mobile Platform,median_baseline,3,3.1379310344827585,2.0
+Titanium Mobile Platform,median_baseline,4,3.0738916256157633,2.0
+Titanium Mobile Platform,median_baseline,5,2.586206896551724,2.0
+Titanium Mobile Platform,tfidf_ridge,1,2.4203026675608768,1.347288909587307
+Titanium Mobile Platform,tfidf_ridge,2,2.4273841270189274,1.4450328600652478
+Titanium Mobile Platform,tfidf_ridge,3,2.5894520115590094,1.384483996120526
+Titanium Mobile Platform,tfidf_ridge,4,2.193452809559568,1.6385615125947695
+Titanium Mobile Platform,tfidf_ridge,5,2.3303466735770293,1.5565160154036501
+Titanium Mobile Platform,sbert_ridge,1,2.249804170692668,1.3662567138671875
+Titanium Mobile Platform,sbert_ridge,2,2.615553094475877,1.6090128421783447
+Titanium Mobile Platform,sbert_ridge,3,2.5949670481564375,1.445199966430664
+Titanium Mobile Platform,sbert_ridge,4,2.4683512983650995,1.7714591026306152
+Titanium Mobile Platform,sbert_ridge,5,2.378008690373651,1.5485358238220215
+Titanium Mobile Platform,sbert_cnn,1,2.412757139886202,1.6956824019720314
+Titanium Mobile Platform,sbert_cnn,2,2.5984948920527904,1.378450352064292
+Titanium Mobile Platform,sbert_cnn,3,2.8354898487412825,1.6138393070176615
+Titanium Mobile Platform,sbert_cnn,4,2.2321140147285394,1.3169165182697067
+Titanium Mobile Platform,sbert_cnn,5,2.3922262626162674,1.2771637571979522

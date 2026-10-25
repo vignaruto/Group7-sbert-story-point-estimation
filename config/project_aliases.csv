@@ -1,0 +1,29 @@
+guideline_name,tawos_name,basis
+# The assignment (section 3.3) uses short names; the TAWOS dump uses full names. 'verified' = same project by name pattern and seen in the real dump;
+# 'inferred' = matched by elimination (the only two TAWOS projects left over) - CONFIRM with your instructor, it does not affect the results of the other 37.
+XD,Spring XD,verified
+Usergrid,Apache Usergrid,verified
+Software Cloud,Atlassian Software Cloud,verified
+Sawtooth,Hyperledger Sawtooth,verified
+Nexus,Sonatype Nexus,verified
+MXNet,Apache MXNet,verified
+MESOS,Apache Mesos,verified
+Jira Server,Atlassian Jira Server,verified
+Jira Cloud,Atlassian Jira Cloud,verified
+Java driver,The Mongo Java driver,verified
+Indy SDK,Hyperledger Indy SDK,verified
+Indy Node,Hyperledger Indy Node,verified
+FishEye,Atlassian FishEye,verified
+Fabric,Hyperledger Fabric,verified
+DataCass,Spring DataCass,verified
+Crowd,Atlassian Crowd,verified
+Confluence Server,Atlassian Confluence Server,verified
+Confluence Cloud,Atlassian Confluence Cloud,verified
+Compass,MongoDB Compass,verified
+Clover,Atlassian Clover,verified
+C++ driver (MongoDB),The Mongo C++ driver,verified
+Blockchain Explorer,Hyperledger Blockchain Explorer,verified
+Bamboo,Atlassian Bamboo,verified
+Atlassian Software Server,Atlassian Atlassian Software Server,verified
+Evergreen,The MongoDB Engineering,inferred
+C++ driver (Appcelerator),Aptana Studio,inferred
