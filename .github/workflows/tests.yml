@@ -17,5 +17,7 @@ jobs:
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install numpy pandas scipy scikit-learn PyYAML matplotlib reportlab nbformat pytest pyflakes
           pip install -e . --no-deps
+      - name: Poppler (lets the report-consistency test run)
+        run: sudo apt-get update -y && sudo apt-get install -y poppler-utils
       - run: python -m pyflakes src scripts tests
       - run: pytest -q

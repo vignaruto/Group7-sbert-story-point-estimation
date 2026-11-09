@@ -5,6 +5,8 @@ import ast
 import datetime as dt
 import json
 import re
+import shutil
+import tempfile
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -16,7 +18,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import cm
 from reportlab.lib.utils import ImageReader
-from reportlab.platypus import (CondPageBreak, Image, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table,
+from reportlab.platypus import (Image, CondPageBreak, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table,
                                 TableStyle)
 
 from reportlab.platypus.tableofcontents import TableOfContents
@@ -217,8 +219,11 @@ def _demo_from_notebook(path) -> dict | None:
 
 
 def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str, notebook: str | Path | None = None) -> Path:
-    out = Path(output_dir)
-    nb_path = Path(notebook) if notebook else out.resolve().parent / "notebooks" / "Group7_PS5_SBERT_StoryPoints.ipynb"
+    src_out = Path(output_dir)
+    nb_path = Path(notebook) if notebook else src_out.resolve().parent / "notebooks" / "Group7_PS5_SBERT_StoryPoints.ipynb"
+    tmp_dir = Path(tempfile.mkdtemp(prefix="spsbert_report_"))
+    out = tmp_dir / "results"
+    shutil.copytree(src_out, out)          # aggregate() rewrites tables and figures: never do that inside the stored results
     agg = aggregate(out)
     meta = read_json(out / "run_metadata.json")
     cfg = meta["config"]
@@ -587,4 +592,5 @@ def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str, n
                       bottomMargin=1.8 * cm, title=f"Group {GROUP} - PS-5 SBERT story point estimation",
                       author=f"Group {GROUP}", subject="Story point estimation with SBERT sentence embeddings (PS-5)",
                       keywords="SBERT, story points, TAWOS, MAE, MdAE").multiBuild(S, onFirstPage=footer, onLaterPages=footer)
+    shutil.rmtree(tmp_dir, ignore_errors=True)
     return out_pdf
