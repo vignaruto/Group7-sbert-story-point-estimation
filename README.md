@@ -63,7 +63,7 @@ config/project_aliases.csv     maps those short names to the full TAWOS names (2
 src/spsbert/                 data.py  splits.py  embeddings.py  models.py  metrics.py
                              experiment.py  aggregate.py  report.py  config.py  cli.py ...
 scripts/export_tawos_to_csv.py   TAWOS (MySQL) -> data/tawos_issues.csv
-tests/                       79 unit, adversarial, mutation, SQL-parser, doctor and notebook tests (pytest)
+tests/                       80 unit, adversarial, mutation, SQL-parser, doctor and notebook tests (pytest)
 docs/GUIDELINE_COMPLIANCE.md every guideline requirement -> code -> test
 .github/workflows/tests.yml  CI (pyflakes + pytest)   ·   Makefile  shortcuts
 notebooks/Group7_PS5_SBERT_StoryPoints.ipynb  guided notebook (thin front-end; runs the same tested package)
@@ -78,7 +78,7 @@ data/                        empty on purpose: the TAWOS data is not redistribut
 ```bash
 python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt && pip install -e .
-pytest -q                                              # expect: 79 passed   (Python >= 3.10)
+pytest -q                                              # expect: 80 passed   (Python >= 3.10)
 ```
 
 ### 3.2 Data (TAWOS)
@@ -107,13 +107,14 @@ After loading, the run warns about any name in `config/guideline_projects.txt` t
 python -m spsbert run --config config/quick.yaml       # optional 1st trial: small SBERT, finishes quickly
 python -m spsbert run --config config/default.yaml     # the full experiment (all-mpnet-base-v2)
 python -m spsbert report --github-url https://github.com/yaswanth230755/group7-ps5-sbert-story-point-estimation --out report/Group7_Final_Report.pdf
+python scripts/check_report_consistency.py                              # report vs results, README and executed notebook
 ```
 * Resumable: finished projects are cached (keyed by a hash of the configuration); `--force` recomputes.
 * Subset: `--projects "Moodle" "Mule"` · Override: `--set split.n_folds=5 embedding.batch_size=32`.
 * A GPU is strongly recommended (use the Colab notebook). Measured on a single slow CPU core: ~2.8 s per training epoch for a 2,400-issue project (768-d), i.e. roughly 45 minutes per such project for the default grid (33 CNN fits); a GPU should be much faster (not measured by us). On CPU the default grid is slow for large projects; use `config/quick.yaml`, or reduce `cnn.grid`/`cnn.max_epochs`/`cnn.final_seeds`.
 
 ### 3.3b Notebook (recommended front-end) and strict audit
-`notebooks/Group7_PS5_SBERT_StoryPoints.ipynb` walks through every output the assignment requires (config/seeds → dataset → split → embeddings → CNN → 5-fold validation → test → comparison table → plots → statistics → discussion → demo → audit) by calling the same tested package; the copy stored in `notebooks/` is the executed final run, with all outputs. Why a thin notebook and not "all code in one notebook": `docs/NOTEBOOK_VS_SCRIPTS.md`. Run it on Colab (GPU) or locally; choose the config in its Section 1.
+`notebooks/Group7_PS5_SBERT_StoryPoints.ipynb` walks through every output the assignment requires (config/seeds → dataset → split → embeddings → CNN → 5-fold validation → test → comparison table → plots → statistics → discussion → demo → audit) by calling the same tested package; the copy stored in `notebooks/` is the executed final run, with all outputs. Only its embedded code copy (the first code cell) was refreshed after the run so that it matches the final repository (report generator); no result or output was changed. Why a thin notebook and not "all code in one notebook": `docs/NOTEBOOK_VS_SCRIPTS.md`. Run it on Colab (GPU) or locally; choose the config in its Section 1.
 
 ```bash
 python -m spsbert check            # strict audit of results/ + repo against guideline 3.1-3.7 (exit 1 on any FAIL)
@@ -162,7 +163,7 @@ The final report PDF is stored in `report/Group7_Final_Report.pdf`.
 Seeds (`seed`, `cnn.final_seeds`), split settings, model name and hyper-parameters live in `config/*.yaml`; `run_metadata.json` stores library versions and hardware. Split issue keys are stored in `results/splits/`. Seeding covers Python, NumPy and PyTorch with deterministic algorithms enabled; bit-exact equality across *different hardware/CUDA versions* is not guaranteed, but results should agree to within normal floating-point noise.
 
 ## 6. Testing
-`pytest -q` runs 79 tests: metric formulas (hand-computed), Holm correction (known values), split invariants, cleaning rules, column aliases, config validation, CNN architecture (exactly three conv layers) and learning, embedding cache, SBERT wiring (stand-in library), SQL export, an end-to-end pipeline, and adversarial checks: a **leakage spy** that records every index each model is fitted/scored on (the test set must never be touched before the final evaluation), TF-IDF vocabulary from training data only, **cache invalidation when the data changes**, constant-target projects, file-name collisions, two independent runs being identical, the CLI, the PDF report, the demo and `verify`, **mutation tests proving the strict audit really catches tampered results**, and an end-to-end execution of the notebook.
+`pytest -q` runs 80 tests: metric formulas (hand-computed), Holm correction (known values), split invariants, cleaning rules, column aliases, config validation, CNN architecture (exactly three conv layers) and learning, embedding cache, SBERT wiring (stand-in library), SQL export, an end-to-end pipeline, and adversarial checks: a **leakage spy** that records every index each model is fitted/scored on (the test set must never be touched before the final evaluation), TF-IDF vocabulary from training data only, **cache invalidation when the data changes**, constant-target projects, file-name collisions, two independent runs being identical, the CLI, the PDF report, the demo and `verify`, **mutation tests proving the strict audit really catches tampered results**, and an end-to-end execution of the notebook.
 `python -m spsbert synthetic && python -m spsbert run --config config/smoke_test.yaml` exercises the whole pipeline offline on **synthetic** data with a non-SBERT encoder. The report it produces is stamped *"NOT REAL RESULTS"*.
 
 ## 7. Limitations
@@ -173,7 +174,7 @@ Random splitting lets the model see issues created after the test issues (tempor
 - [x] Strict audit `python -m spsbert check` passes (only the report check is pending)
 - [x] Run reproduced three times with identical numbers
 - [x] Executed notebook in `notebooks/`, code in `src/`, settings in `config/`
-- [ ] Final report PDF with this repository's URL on page 1 (`report/`)
+- [x] Final report PDF with this repository's URL on page 1 (`report/Group7_Final_Report.pdf`), checked against the results by `scripts/check_report_consistency.py`
 - [ ] Every member can explain the pipeline (section 4), the results and the limitations (`docs/VIVA_GUIDE.md`)
 
 ## 9. References

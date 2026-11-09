@@ -1,7 +1,10 @@
 """Build the final PDF report entirely from results/ (no hand-typed numbers)."""
 from __future__ import annotations
 
+import ast
 import datetime as dt
+import json
+import re
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -13,8 +16,10 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import cm
 from reportlab.lib.utils import ImageReader
-from reportlab.platypus import (Image, KeepTogether, Paragraph, SimpleDocTemplate, Spacer, Table,
+from reportlab.platypus import (CondPageBreak, Image, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table,
                                 TableStyle)
+
+from reportlab.platypus.tableofcontents import TableOfContents
 
 from .aggregate import PRIMARY, aggregate
 from .utils import read_json
@@ -39,15 +44,36 @@ REFS = [
     "(backbone of all-mpnet-base-v2).",
     "F. Wilcoxon, Individual comparisons by ranking methods, Biometrics Bulletin 1(6), 1945.",
 ]
-(REFS_NOTE) = "Please verify bibliographic details against the original publications before submission."
+
+
+FONT_MAP = {"Helvetica": "DejaVu", "Helvetica-Bold": "DejaVu-Bold", "Helvetica-Oblique": "DejaVu-Italic",
+            "Helvetica-BoldOblique": "DejaVu-BoldItalic", "Courier": "DejaVuMono", "Courier-Bold": "DejaVuMono"}
+
+
+def _register_fonts() -> None:
+    """Embed DejaVu (shipped with matplotlib) so the PDF looks identical on every viewer and printer."""
+    import matplotlib
+    from reportlab.lib.fonts import addMapping
+    from reportlab.pdfbase import pdfmetrics
+    from reportlab.pdfbase.ttfonts import TTFont
+
+    d = Path(matplotlib.get_data_path()) / "fonts" / "ttf"
+    for name, f in (("DejaVu", "DejaVuSans.ttf"), ("DejaVu-Bold", "DejaVuSans-Bold.ttf"), ("DejaVu-Italic", "DejaVuSans-Oblique.ttf"),
+                    ("DejaVu-BoldItalic", "DejaVuSans-BoldOblique.ttf"), ("DejaVuMono", "DejaVuSansMono.ttf")):
+        pdfmetrics.registerFont(TTFont(name, str(d / f)))
+    for b, i, n in ((0, 0, "DejaVu"), (1, 0, "DejaVu-Bold"), (0, 1, "DejaVu-Italic"), (1, 1, "DejaVu-BoldItalic")):
+        addMapping("DejaVu", b, i, n)
+    from reportlab import rl_config
+
+    rl_config.canvas_basefontname = "DejaVu"      # otherwise every page still declares the (unused) default Helvetica
 
 
 def _styles():
     ss = getSampleStyleSheet()
-    return {
+    sty = {
         "title": ParagraphStyle("t", parent=ss["Title"], fontSize=17, leading=21),
-        "h1": ParagraphStyle("h1", parent=ss["Heading1"], fontSize=13.5, spaceBefore=10, spaceAfter=5),
-        "h2": ParagraphStyle("h2", parent=ss["Heading2"], fontSize=11, spaceBefore=7, spaceAfter=3),
+        "h1": ParagraphStyle("h1", parent=ss["Heading1"], fontSize=13.5, spaceBefore=10, spaceAfter=5, keepWithNext=1),
+        "h2": ParagraphStyle("h2", parent=ss["Heading2"], fontSize=11, spaceBefore=7, spaceAfter=3, keepWithNext=1),
         "p": ParagraphStyle("p", parent=ss["BodyText"], fontSize=9.4, leading=12.6, alignment=TA_JUSTIFY, spaceAfter=4),
         "small": ParagraphStyle("s", parent=ss["BodyText"], fontSize=7.8, leading=9.6),
         "cell": ParagraphStyle("c", parent=ss["BodyText"], fontSize=7.4, leading=8.8),
@@ -57,13 +83,16 @@ def _styles():
         "code": ParagraphStyle("code", parent=ss["Code"], fontSize=7.8, leading=9.5, backColor=colors.HexColor("#f3f3f3"),
                                borderPadding=3, spaceAfter=4),
     }
+    for v in sty.values():
+        v.fontName = FONT_MAP.get(v.fontName, v.fontName)
+    return sty
 
 
 def _table(rows, widths, st, header=1, zebra=True, font=7.6):
     t = Table(rows, colWidths=widths, repeatRows=header)
     style = [("FONTSIZE", (0, 0), (-1, -1), font), ("GRID", (0, 0), (-1, -1), 0.3, colors.HexColor("#999999")),
              ("BACKGROUND", (0, 0), (-1, header - 1), colors.HexColor("#dfe7f3")),
-             ("FONTNAME", (0, 0), (-1, header - 1), "Helvetica-Bold"), ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+             ("FONTNAME", (0, 0), (-1, -1), "DejaVu"), ("FONTNAME", (0, 0), (-1, header - 1), "DejaVu-Bold"), ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
              ("TOPPADDING", (0, 0), (-1, -1), 2), ("BOTTOMPADDING", (0, 0), (-1, -1), 2)]
     if zebra:
         for i in range(header, len(rows)):
@@ -154,15 +183,51 @@ def _discussion(agg: dict, mode_share: float) -> list:
     return out
 
 
-def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str) -> Path:
+class _Doc(SimpleDocTemplate):
+    """Registers every level-1/2 heading for the table of contents (the document is built in two passes)."""
+
+    def afterFlowable(self, flowable):
+        if isinstance(flowable, Paragraph) and flowable.style.name in ("h1", "h2"):
+            self.notify("TOCEntry", (0 if flowable.style.name == "h1" else 1, flowable.getPlainText(), self.page))
+
+
+def _demo_from_notebook(path) -> dict | None:
+    """Demo texts, predictions, demo project and reproducibility line taken from the EXECUTED notebook (None if unavailable)."""
+    try:
+        nb = json.loads(Path(path).read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return None
+    info: dict = {}
+    alltext = ""
+    for c in nb.get("cells", []):
+        if c.get("cell_type") != "code":
+            continue
+        src = "".join(c.get("source", []))
+        out = "".join("".join(o["text"]) if o.get("output_type") == "stream" else "".join(o.get("data", {}).get("text/plain", []))
+                      for o in c.get("outputs", []) if o.get("output_type") in ("stream", "display_data", "execute_result"))
+        alltext += out + "\n"
+        if "DEMO_TEXTS" in src and "predicted story points" in out:
+            body = src.split("DEMO_TEXTS", 1)[1].split("]", 1)[0]
+            info["texts"] = re.findall(r'"([^"]{10,})"', body)
+            info["preds"] = [float(m.group(1)) for m in re.finditer(r"^\s*\d+\s+.*?\s(\d+\.\d+)\s*$", out, re.M)][:len(info["texts"])]
+    m = re.search(r"Demo project: (.+)", alltext)
+    info["project"] = m.group(1).strip() if m else None
+    info["reproducible"] = "REPRODUCIBLE: recomputation matches the stored results" in alltext
+    return info if info.get("texts") and len(info.get("preds", [])) == len(info["texts"]) else None
+
+
+def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str, notebook: str | Path | None = None) -> Path:
     out = Path(output_dir)
+    nb_path = Path(notebook) if notebook else out.resolve().parent / "notebooks" / "Group7_PS5_SBERT_StoryPoints.ipynb"
     agg = aggregate(out)
     meta = read_json(out / "run_metadata.json")
     cfg = meta["config"]
     clean = read_json(out / "data_cleaning_report.json")
     summ = pd.read_csv(out / "tables" / "dataset_summary.csv")
     results, test, val, macro = agg["results"], agg["test"], agg["val"], agg["macro"]
+    _register_fonts()
     st = _styles()
+    st["toc_title"] = st["h1"].clone("toc_title")
     synthetic = bool(meta.get("synthetic_data")) or meta.get("encoder_backend") != "sbert"
     placeholder = "<username>" in github_url
     n_proj = len(results)
@@ -173,7 +238,7 @@ def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str) -
 
     def footer(canvas, doc):
         canvas.saveState()
-        canvas.setFont("Helvetica", 7.5)
+        canvas.setFont("DejaVu", 7.5)
         canvas.setFillColor(colors.grey)
         canvas.drawString(2 * cm, 1.1 * cm, f"Group {GROUP} - NLP course project - PS-5 (SBERT, within-project, random split)")
         canvas.drawRightString(A4[0] - 2 * cm, 1.1 * cm, f"Page {doc.page}")
@@ -184,7 +249,7 @@ def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str) -
 
     S: list = []
     S.append(P("Effectiveness of SBERT-based Sentence Embeddings for Story Point Estimation within the Same Project (Random Split)", "title"))
-    S.append(P(escape(PROBLEM), "p"))
+    S.append(P("<b>Problem statement.</b> " + escape(PROBLEM), "p"))
     if synthetic:
         S.append(P("<b>WARNING - NOT A VALID EXPERIMENT.</b> This file was generated from synthetic data and/or the offline "
                    "hashing encoder to test the software pipeline. None of the numbers below are TAWOS or SBERT results and "
@@ -202,11 +267,29 @@ def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str) -
     m = macro.set_index("method")
     abstract = (f"We study whether frozen Sentence-BERT (SBERT) embeddings of issue text, fed to a three-layer CNN, predict story points "
                 f"better than simple baselines when training and testing issues come from the same project and are split at random. "
-                f"On {n_proj} projects ({n_issues} issues) from the TAWOS dataset we use an 80:20 development/test split, five-fold "
+                f"On {n_proj} projects ({n_issues:,} issues) from the TAWOS dataset we use an 80:20 development/test split, five-fold "
                 f"cross-validation on the development part for model selection, and report Mean Absolute Error (MAE) and Median "
                 f"Absolute Error (MdAE) on the held-out test set. Macro-averaged test MAE / MdAE: ")
     abstract += "; ".join(f"{LABEL[k]} {_f(m.loc[k, 'test_mae'])} / {_f(m.loc[k, 'test_mdae'])}" for k in ORDER if k in m.index) + "."
     S.append(P("<b>Abstract.</b> " + abstract))
+    ex0 = agg["extra"]
+    mm0 = macro.set_index("method")
+    if PRIMARY in mm0.index and "median_baseline" in mm0.index:
+        g0 = 100 * (mm0.loc["median_baseline", "test_mae"] - mm0.loc[PRIMARY, "test_mae"]) / mm0.loc["median_baseline", "test_mae"]
+        pv0 = ex0.get("primary_vs", {}).get("median_baseline", {})
+        brief = (f"SBERT+CNN {'reduced' if g0 > 0 else 'did not reduce'} the macro test MAE relative to the median baseline "
+                 f"({g0:+.1f}%; lower error in {pv0.get('wins', '?')} of {ex0['n_projects']} projects). ")
+        if "tfidf_ridge" in mm0.index and mm0.loc["tfidf_ridge", "test_mae"] < mm0.loc[PRIMARY, "test_mae"]:
+            brief += (f"A lexical TF-IDF+Ridge model was better still (macro MAE {_f(mm0.loc['tfidf_ridge', 'test_mae'])} vs "
+                      f"{_f(mm0.loc[PRIMARY, 'test_mae'])}), so SBERT sentence embeddings were useful but not the most effective representation here.")
+        S.append(P("<b>Answer in brief.</b> " + brief))
+    S.append(PageBreak())
+    toc = TableOfContents()
+    toc.levelStyles = [ParagraphStyle("toc0", fontName="DejaVu", fontSize=9.0, leading=13.5, leftIndent=4, firstLineIndent=-4, spaceBefore=2),
+                       ParagraphStyle("toc1", fontName="DejaVu", fontSize=8.2, leading=11.5, leftIndent=22, firstLineIndent=-4, textColor=colors.HexColor("#333333"))]
+    S.append(P("Contents", "toc_title"))
+    S.append(toc)
+    S.append(Spacer(1, 8))
 
     # 1
     S.append(P("1. Problem statement and objectives", "h1"))
@@ -223,16 +306,24 @@ def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str) -
     # 2
     S.append(P("2. Dataset", "h1"))
     S.append(P("We use the TAWOS dataset of open-source agile projects (Tawosi et al., MSR 2022). Only issues with a story point value "
-               "are usable. Cleaning (see <font face='Courier'>spsbert/data.py</font>): non-numeric or non-positive story points removed; "
+               "are usable. Cleaning (see <font face='DejaVuMono'>spsbert/data.py</font>): non-numeric or non-positive story points removed; "
                "text = title + description with code/noformat blocks, Jira macros, HTML tags and user mentions removed and URLs replaced by "
                "'URL'; empty texts removed; duplicate issue keys and exact duplicate texts within a project removed (duplicates would "
                "otherwise appear in both training and test data); projects with fewer than "
                f"{cfg['data']['min_issues']} usable issues skipped."
                + (f" <b>Outlier policy:</b> story points above {cfg['data']['max_story_point']:g} were removed as data-entry errors "
                   f"(the raw data contain values up to {clean.get('raw_story_point_max', 0):,.0f}); {clean.get('dropped_above_max_story_point', 0)} "
-                  f"issues were affected (per project: <font face='Courier'>results/data_cleaning_report.json</font>)." if cfg['data'].get('max_story_point') else "")))
+                  f"issues were affected (per project: <font face='DejaVuMono'>results/data_cleaning_report.json</font>)." if cfg['data'].get('max_story_point') else "")))
     S.append(P("Cleaning report: " + ", ".join(f"{k.replace('_', ' ')} = {v}" for k, v in clean.items()
                                                   if isinstance(v, int)) + ".", "small"))
+    mp, inf = clean.get("project_name_mapping", {}) or {}, clean.get("inferred_name_mappings", []) or []
+    if mp:
+        S.append(P(f"<b>Project names.</b> The assignment (section 3.3) lists the projects by short names, whereas TAWOS uses full names "
+                   f"(for example 'XD' is 'Spring XD'). {len(results) - len(mp)} names are identical, {len(mp) - len(inf)} differ only by a prefix "
+                   f"such as 'Apache', 'Atlassian', 'Hyperledger' or 'Spring', and {len(inf)} ({escape('; '.join(inf))}) were matched by elimination "
+                   f"because no other name resembles them. The course instructor confirmed by e-mail that the group's mapping may be used. "
+                   f"All {len(results)} TAWOS projects are modelled separately, so the mapping changes only the labels in the tables, never a "
+                   f"number. The complete mapping is given in Appendix B and in <font face='DejaVuMono'>config/project_aliases.csv</font>."))
     rows = [["Project", "Issues", "Mean SP", "Median", "Std", "Min", "Max", "#Distinct", "Mode share"]]
     for r in summ.itertuples():
         rows.append([Paragraph(escape(r.project), st["cell"]), r.n_issues, _f(r.sp_mean, 2), _f(r.sp_median, 1), _f(r.sp_std, 2),
@@ -250,7 +341,7 @@ def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str) -
                "development set and evaluate once on the untouched test set. The test set is never used for selection, early "
                "stopping, scaling or feature fitting. All methods share identical partitions, which allows paired comparisons."))
     S.append(P("3.2 SBERT sentence embeddings", "h2"))
-    S.append(P(f"Each issue text is encoded once with <font face='Courier'>{escape(str(meta['encoder']))}</font> "
+    S.append(P(f"Each issue text is encoded once with <font face='DejaVuMono'>{escape(str(meta['encoder']))}</font> "
                f"(sentence-transformers; maximum sequence length {cfg['embedding']['max_seq_length']} tokens, longer texts truncated; "
                f"embeddings L2-normalised). The encoder is frozen and unsupervised w.r.t. the target, so encoding all issues before "
                f"splitting does not leak labels. Embeddings are cached on disk."))
@@ -301,9 +392,11 @@ def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str) -
                      ["Python / PyTorch / sentence-transformers", f"{env.get('python')} / {env.get('torch')} / {env.get('sentence_transformers')}"],
                      ["scikit-learn / NumPy / pandas", f"{env.get('sklearn')} / {env.get('numpy')} / {env.get('pandas')}"],
                      ["Hardware", str(env.get('gpu') or 'CPU')],
-                     ["Config hash", meta["config_hash"]]], [6 * cm, 10 * cm], st))
+                     ["Config hash", meta["config_hash"]],
+                     ["Independent repeats", Paragraph("The complete run was executed three times on separate days on a Kaggle Tesla T4; all test and validation metrics, split files and predictions were identical.", st["cell"])]],
+                    [6 * cm, 10 * cm], st))
     S.append(P("Seeds, split indices (per-project JSON of issue keys), configuration and software versions are stored in the repository "
-               "(<font face='Courier'>results/splits</font>, <font face='Courier'>results/run_metadata.json</font>, <font face='Courier'>config/</font>).", "small"))
+               "(<font face='DejaVuMono'>results/splits</font>, <font face='DejaVuMono'>results/run_metadata.json</font>, <font face='DejaVuMono'>config/</font>).", "small"))
 
     # 5
     S.append(P("5. Results", "h1"))
@@ -313,7 +406,7 @@ def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str) -
         if k in m.index:
             rows.append([LABEL[k], _f(m.loc[k, "val_mae"]), _f(m.loc[k, "val_mae_fold_std"]), _f(m.loc[k, "val_mdae"]), _f(m.loc[k, "val_mdae_fold_std"])])
     S.append(P("Table 2. Validation metrics of the selected configuration, averaged over projects (fold-wise values for every project: "
-               "<font face='Courier'>results/tables/validation_per_fold.csv</font>).", "small"))
+               "<font face='DejaVuMono'>results/tables/validation_per_fold.csv</font>).", "small"))
     S.append(_table(rows, [3.6 * cm, 3.4 * cm, 2.6 * cm, 3.8 * cm, 2.6 * cm], st))
     vp = val[val.method == PRIMARY].sort_values("project")
     rows = [["Project", "Val. MAE (mean ± std)", "Val. MdAE (mean ± std)", "Selected hyper-parameters"]]
@@ -323,6 +416,18 @@ def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str) -
     S.append(Spacer(1, 6))
     S.append(P("Table 3. SBERT+CNN five-fold validation results per project.", "small"))
     S.append(_table(rows, [4.4 * cm, 3.4 * cm, 3.4 * cm, 5.4 * cm], st))
+
+    def _count(method, key):
+        vals = [ast.literal_eval(x)[key] for x in val[val.method == method].best_params]
+        return ", ".join(f"{k:g}: {v}" for k, v in sorted(pd.Series(vals).value_counts().items()))
+    hp = [["Method", "Hyper-parameter", "Selected values (number of projects)"]]
+    for mth, key, nm in (("sbert_cnn", "dropout", "Dropout"), ("sbert_cnn", "weight_decay", "Weight decay (L2)"),
+                         ("sbert_ridge", "alpha", "Ridge alpha"), ("tfidf_ridge", "alpha", "Ridge alpha")):
+        if mth in set(val.method):
+            hp.append([LABEL[mth], nm, _count(mth, key)])
+    S.append(Spacer(1, 6))
+    S.append(KeepTogether([P("Table 3b. Hyper-parameters selected by five-fold cross-validation (the CNN learning rate was fixed at 0.001).", "small"),
+                           _table(hp, [3.4 * cm, 4.2 * cm, 9 * cm], st)]))
 
     S.append(P("5.2 Final held-out test results", "h2"))
     rows = [["Method", "Test MAE", "Test MdAE", "Projects with lowest MAE", "Projects with lowest MdAE"]]
@@ -355,9 +460,10 @@ def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str) -
         rows.append([Paragraph(escape(p), st["cell"]), int(n_test[p])] + cells)
     S.append(Spacer(1, 6))
     S.append(P("Table 5. Held-out test MAE / MdAE per project (bold = lowest MAE in the row). 95% confidence intervals and p-values: "
-               "<font face='Courier'>results/tables/test_results.csv</font>.", "small"))
+               "<font face='DejaVuMono'>results/tables/test_results.csv</font>.", "small"))
     S.append(_table(rows, [3.9 * cm, 1.2 * cm] + [(16.8 - 5.1) / len(cols) * cm] * len(cols), st))
 
+    S.append(CondPageBreak(20 * cm))       # figures are page-sized: start the heading on a fresh page rather than stranding it
     S.append(P("5.3 Figures", "h2"))
     for fn, cap, w in (("test_mae_per_project.png", "Figure 1. Test MAE per project.", 16.5),
                        ("test_mdae_per_project.png", "Figure 2. Test MdAE per project.", 16.5),
@@ -432,19 +538,53 @@ def build_report(output_dir: str | Path, out_pdf: str | Path, github_url: str) -
     S.append(P(concl))
 
     # 9
-    S.append(P("9. Reproducing the results", "h1"))
-    S.append(P("pip install -r requirements.txt &amp;&amp; pip install -e .<br/>"
-               "python scripts/export_tawos_to_csv.py --database tawos --out data/tawos_issues.csv<br/>"
-               "python -m spsbert run --config config/default.yaml<br/>"
-               "python -m spsbert report --github-url &lt;repo-url&gt;", "code"))
+    S.append(P("9. Demonstration and reproduction", "h1"))
+    demo_project = min(results, key=lambda r: r["n_issues"])["project"]
+    S.append(P("The implementation can be demonstrated and the principal results reproduced in three ways: (i) run the notebook "
+               "<font face='DejaVuMono'>notebooks/Group7_PS5_SBERT_StoryPoints.ipynb</font> (Kaggle with a T4 GPU, about 80 minutes; Section 13 shows a live "
+               "prediction and a recomputation check); (ii) use the command line below; (iii) inspect the stored results and the strict audit "
+               "<font face='DejaVuMono'>python -m spsbert check</font>. Every number in this report is read from <font face='DejaVuMono'>results/</font>."))
+    cmds = ["git clone " + github_url + ".git", "cd " + github_url.rstrip("/").split("/")[-1],
+            "pip install -r requirements.txt &amp;&amp; pip install -e .",
+            "python -m spsbert sql2csv path/to/TAWOS.sql --out data/tawos_issues.csv",
+            "python -m spsbert run --config config/default.yaml",
+            f"python -m spsbert verify --project \"{escape(demo_project)}\"",
+            f"python -m spsbert predict --project \"{escape(demo_project)}\" --text \"Fix typo in the label of the save button\"",
+            "python -m spsbert check"]
+    S.append(P("<br/>".join(cmds), "code"))
+    demo = _demo_from_notebook(nb_path)
+    if demo:
+        rows = [["Issue text (demonstration input)", "Predicted story points"]] + [[Paragraph(escape(t), st["cell"]), f"{v:.2f}"] for t, v in zip(demo["texts"], demo["preds"])]
+        S.append(Spacer(1, 4))
+        S.append(KeepTogether([P(f"Table 8. Predictions of the model selected for the project '{escape(str(demo['project']))}', copied from Section 13 of the executed notebook.", "small"),
+                               _table(rows, [12.4 * cm, 4.2 * cm], st)]))
+        if demo["reproducible"]:
+            S.append(P("The recomputation of this project from scratch matched the stored results exactly (notebook output: REPRODUCIBLE)."))
     S.append(P("References", "h1"))
     for i, r in enumerate(REFS, 1):
         S.append(P(f"[{i}] {escape(r)}", "small"))
-    S.append(P(REFS_NOTE, "small"))
+
+    S.append(P("Appendix A. SBERT+CNN held-out test results with 95% confidence intervals", "h1"))
+    ap = test[test.method == PRIMARY].sort_values("project")
+    rows = [["Project", "n test", "MAE [95% CI]", "MdAE [95% CI]", "Holm p vs median"]]
+    for r in ap.itertuples():
+        hp_ = r.p_vs_median_holm
+        rows.append([Paragraph(escape(r.project), st["cell"]), int(r.n_test), f"{_f(r.mae, 2)} [{_f(r.mae_ci_lo, 2)}, {_f(r.mae_ci_hi, 2)}]",
+                     f"{_f(r.mdae, 2)} [{_f(r.mdae_ci_lo, 2)}, {_f(r.mdae_ci_hi, 2)}]", "-" if pd.isna(hp_) else ("<0.001" if hp_ < 0.001 else f"{hp_:.3f}")])
+    S.append(P("Table A1. Intervals come from 1,000 bootstrap resamples of the test issues; the last column is the Holm-corrected Wilcoxon p-value against the median baseline.", "small"))
+    S.append(_table(rows, [4.6 * cm, 1.4 * cm, 4 * cm, 4 * cm, 2.6 * cm], st))
+    if mp:
+        S.append(P("Appendix B. Mapping of the assignment's project names to TAWOS names", "h1"))
+        rows = [["Name in the assignment (section 3.3)", "Name in TAWOS", "Basis"]]
+        for k, v in sorted(mp.items()):
+            rows.append([Paragraph(escape(k), st["cell"]), Paragraph(escape(v), st["cell"]), "by elimination" if f"{k} -> {v}" in inf else "name pattern"])
+        S.append(P(f"Table B1. {len(mp)} of the {len(results)} names differ; the other {len(results) - len(mp)} are identical.", "small"))
+        S.append(_table(rows, [6 * cm, 6.6 * cm, 3.8 * cm], st))
 
     out_pdf = Path(out_pdf)
     out_pdf.parent.mkdir(parents=True, exist_ok=True)
-    SimpleDocTemplate(str(out_pdf), pagesize=A4, leftMargin=2 * cm, rightMargin=2 * cm, topMargin=1.8 * cm,
+    _Doc(str(out_pdf), pagesize=A4, initialFontName="DejaVu", leftMargin=2 * cm, rightMargin=2 * cm, topMargin=1.8 * cm,
                       bottomMargin=1.8 * cm, title=f"Group {GROUP} - PS-5 SBERT story point estimation",
-                      author=f"Group {GROUP}").build(S, onFirstPage=footer, onLaterPages=footer)
+                      author=f"Group {GROUP}", subject="Story point estimation with SBERT sentence embeddings (PS-5)",
+                      keywords="SBERT, story points, TAWOS, MAE, MdAE").multiBuild(S, onFirstPage=footer, onLaterPages=footer)
     return out_pdf

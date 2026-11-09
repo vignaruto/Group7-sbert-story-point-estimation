@@ -215,7 +215,10 @@ def run_checks(output_dir: str | Path = "results", repo_root: str | Path = ".", 
         "spsbert predict" in readme and "spsbert verify" in readme)
 
     # ---------------- report (3.6)
-    pdf = Path(report_pdf) if report_pdf else out / "Group7_Final_Report.pdf"
+    cands = [out / "Group7_Final_Report.pdf"]
+    if out.resolve().parent == root.resolve():      # the repository's own results/ folder: the report lives in report/
+        cands.insert(0, root / "report" / "Group7_Final_Report.pdf")
+    pdf = Path(report_pdf) if report_pdf else next((c for c in cands if c.exists()), cands[0])
     if not pdf.exists():
         C.append(Check("A20", "3.6", "Final report PDF with GitHub link on the first page", "PENDING", f"{pdf} not generated yet"))
     elif shutil.which("pdftotext"):

@@ -1,8 +1,12 @@
 """Repository hygiene: docs must not lie (paths, commands), imports must be installable, no leftovers."""
 import ast
 import re
+import shutil
+import subprocess
 import sys
 from pathlib import Path
+
+import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = [ROOT / "README.md", *sorted((ROOT / "docs").glob("*.md"))]
@@ -57,3 +61,14 @@ def test_documentation_contains_no_chat_artifacts():
             if pat.search(line):
                 bad.append(f"{f.name}:{i}")
     assert not bad, bad
+
+
+def test_committed_report_matches_committed_results():
+    """The PDF in report/ must agree with results/, the README and the executed notebook (needs poppler; skipped otherwise)."""
+    pdf = ROOT / "report" / "Group7_Final_Report.pdf"
+    if not shutil.which("pdftotext") or not pdf.exists():
+        pytest.skip("poppler or the final report is not available")
+    r = subprocess.run([sys.executable, str(ROOT / "scripts" / "check_report_consistency.py"), "--repo", str(ROOT)], capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout
+    from spsbert.check import run_checks
+    assert next(c.status for c in run_checks(ROOT / "results", ROOT) if c.id == "A20") == "PASS"
